@@ -1,0 +1,86 @@
+[gd_scene load_steps=12 format=3 uid="uid://b084bo6khvkyq"]
+
+[ext_resource type="Script" path="res://code/buildings/turet.gd" id="1_8e02t"]
+[ext_resource type="Texture2D" uid="uid://qqgan05jfxp2" path="res://art/buildings/main/Untitled-1.png" id="1_ile3q"]
+[ext_resource type="Texture2D" uid="uid://b1jj6ua8qwnfm" path="res://art/buildings/main/Untitled-2.png" id="2_hj6d2"]
+[ext_resource type="Texture2D" uid="uid://103qjx1pljn5" path="res://art/buildings/main/Untitled-3.png" id="3_3rgq7"]
+[ext_resource type="Texture2D" uid="uid://cmtq58ff6b0go" path="res://art/buildings/main/Untitled-4.png" id="4_fk2i7"]
+[ext_resource type="Texture2D" uid="uid://ci48iqruc5gak" path="res://art/buildings/main/Untitled-5.png" id="5_7dhv8"]
+[ext_resource type="Texture2D" uid="uid://cmu6qml40k6us" path="res://art/buildings/main/Untitled-6.png" id="6_mj2xq"]
+[ext_resource type="Texture2D" uid="uid://cw7w7viqaap7b" path="res://art/buildings/main/Untitled-7.png" id="7_byyht"]
+[ext_resource type="Texture2D" uid="uid://kx18e71kf2" path="res://art/buildings/main/Untitled-8.png" id="8_l677m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hoiru"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ile3q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hj6d2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3rgq7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fk2i7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7dhv8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_mj2xq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_byyht")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_l677m")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ile3q")
+}],
+"loop": true,
+"name": &"defult",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4g1b8"]
+radius = 300.0
+
+[node name="Turet" type="Area2D"]
+script = ExtResource("1_8e02t")
+
+[node name="Pivot" type="Marker2D" parent="."]
+rotation = 1.5708
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot"]
+scale = Vector2(1.28947, 1.69156)
+sprite_frames = SubResource("SpriteFrames_hoiru")
+animation = &"attack"
+
+[node name="ShootingPoint" type="Marker2D" parent="Pivot/AnimatedSprite2D"]
+unique_name_in_owner = true
+position = Vector2(0, -36)
+rotation = -1.5708
+
+[node name="Aiming" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4g1b8")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="AnimationTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="AnimationTimer" to="." method="_on_animation_timer_timeout"]

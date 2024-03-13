@@ -1,0 +1,213 @@
+[gd_scene load_steps=14 format=3 uid="uid://dby34b7l7v5uj"]
+
+[ext_resource type="Script" path="res://code/player/inventory.gd" id="1_ad8bs"]
+[ext_resource type="Texture2D" uid="uid://druf0h1f037mi" path="res://art/player/inventory/slot.png" id="1_jofva"]
+[ext_resource type="FontFile" uid="uid://c34yck4u33u8a" path="res://fonts/Xolonium-Regular.ttf" id="2_ef73i"]
+[ext_resource type="Texture2D" uid="uid://bcvmkvl86jbuq" path="res://art/player/weapons/sword.png" id="3_sfyxq"]
+[ext_resource type="Texture2D" uid="uid://tnshor3r3raq" path="res://art/player/weapons/Flat Guns/gun1.png" id="3_xdfho"]
+[ext_resource type="Texture2D" uid="uid://dptdsscliolal" path="res://art/player/weapons/Flat Guns/gun2.png" id="4_syktn"]
+[ext_resource type="Texture2D" uid="uid://fwi26arpcu3x" path="res://art/player/weapons/Flat Guns/gun3.png" id="5_sqti8"]
+[ext_resource type="Texture2D" uid="uid://b5cyk0cbiwa6t" path="res://art/player/weapons/Flat Guns/gun4.png" id="6_0dshy"]
+[ext_resource type="Texture2D" uid="uid://cb6xpg3e5b8dm" path="res://art/player/weapons/Flat Guns/gun5.png" id="7_42m8x"]
+[ext_resource type="Texture2D" uid="uid://c6askk5jntsnc" path="res://art/player/weapons/Flat Guns/gun6.png" id="9_i22g0"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_wbfmi"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a5vih"]
+texture = ExtResource("1_jofva")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lijkf"]
+blend_mode = 2
+
+[node name="Inventory" type="TextureRect"]
+custom_minimum_size = Vector2(875, 100)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("ViewportTexture_wbfmi")
+script = ExtResource("1_ad8bs")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 7
+
+[node name="Option1" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(125, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_a5vih")
+
+[node name="Label1" type="Label" parent="GridContainer/Option1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_ef73i")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="SwordButton" type="Button" parent="GridContainer/Option1"]
+material = SubResource("CanvasItemMaterial_lijkf")
+layout_mode = 0
+offset_right = 124.0
+offset_bottom = 101.0
+
+[node name="Sword" type="Sprite2D" parent="GridContainer/Option1"]
+position = Vector2(63.5, 50)
+scale = Vector2(0.253906, 0.208203)
+texture = ExtResource("3_sfyxq")
+
+[node name="Option2" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(125, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_a5vih")
+
+[node name="Label2" type="Label" parent="GridContainer/Option2"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_ef73i")
+theme_override_font_sizes/font_size = 20
+text = "2
+"
+
+[node name="Pistol" type="Sprite2D" parent="GridContainer/Option2"]
+position = Vector2(66.5, 53)
+scale = Vector2(0.121037, 0.110838)
+texture = ExtResource("3_xdfho")
+
+[node name="PistolButton" type="Button" parent="GridContainer/Option2"]
+material = SubResource("CanvasItemMaterial_lijkf")
+offset_right = 124.0
+offset_bottom = 101.0
+
+[node name="Option3" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(125, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_a5vih")
+
+[node name="Label3" type="Label" parent="GridContainer/Option3"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_ef73i")
+theme_override_font_sizes/font_size = 20
+text = "3
+"
+
+[node name="SMG" type="Sprite2D" parent="GridContainer/Option3"]
+position = Vector2(64.5, 52.0001)
+scale = Vector2(0.0760401, 0.0834553)
+texture = ExtResource("4_syktn")
+
+[node name="SMGButton" type="Button" parent="GridContainer/Option3"]
+material = SubResource("CanvasItemMaterial_lijkf")
+offset_right = 124.0
+offset_bottom = 101.0
+
+[node name="Option4" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(125, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_a5vih")
+
+[node name="Label4" type="Label" parent="GridContainer/Option4"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_ef73i")
+theme_override_font_sizes/font_size = 20
+text = "4
+"
+
+[node name="Duet" type="Sprite2D" parent="GridContainer/Option4"]
+position = Vector2(63.725, 51)
+scale = Vector2(0.0710358, 0.0773973)
+texture = ExtResource("5_sqti8")
+
+[node name="DuetButton" type="Button" parent="GridContainer/Option4"]
+material = SubResource("CanvasItemMaterial_lijkf")
+offset_right = 124.0
+offset_bottom = 101.0
+
+[node name="Option5" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(125, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_a5vih")
+
+[node name="Label5" type="Label" parent="GridContainer/Option5"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_ef73i")
+theme_override_font_sizes/font_size = 20
+text = "5
+"
+
+[node name="Shotgun" type="Sprite2D" parent="GridContainer/Option5"]
+position = Vector2(62.5, 53)
+scale = Vector2(0.0789299, 0.0791777)
+texture = ExtResource("6_0dshy")
+
+[node name="ShotgunButton" type="Button" parent="GridContainer/Option5"]
+material = SubResource("CanvasItemMaterial_lijkf")
+offset_right = 124.0
+offset_bottom = 101.0
+
+[node name="Option6" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(125, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_a5vih")
+
+[node name="Label6" type="Label" parent="GridContainer/Option6"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_ef73i")
+theme_override_font_sizes/font_size = 20
+text = "6
+"
+
+[node name="Sniper" type="Sprite2D" parent="GridContainer/Option6"]
+position = Vector2(62.5, 55)
+scale = Vector2(0.0665032, 0.0760949)
+texture = ExtResource("7_42m8x")
+
+[node name="SniperButton" type="Button" parent="GridContainer/Option6"]
+material = SubResource("CanvasItemMaterial_lijkf")
+offset_right = 124.0
+offset_bottom = 101.0
+
+[node name="Option7" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(125, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_a5vih")
+
+[node name="Label7" type="Label" parent="GridContainer/Option7"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_ef73i")
+theme_override_font_sizes/font_size = 20
+text = "7
+"
+
+[node name="Rocket" type="Sprite2D" parent="GridContainer/Option7"]
+position = Vector2(64.5, 50)
+scale = Vector2(0.0613899, 0.0860577)
+texture = ExtResource("9_i22g0")
+
+[node name="RocketButton" type="Button" parent="GridContainer/Option7"]
+material = SubResource("CanvasItemMaterial_lijkf")
+offset_right = 124.0
+offset_bottom = 101.0
+
+[connection signal="pressed" from="GridContainer/Option1/SwordButton" to="." method="_on_sword_button_pressed"]
+[connection signal="pressed" from="GridContainer/Option2/PistolButton" to="." method="_on_pistol_button_pressed"]
+[connection signal="pressed" from="GridContainer/Option3/SMGButton" to="." method="_on_smg_button_pressed"]
+[connection signal="pressed" from="GridContainer/Option4/DuetButton" to="." method="_on_duet_button_pressed"]
+[connection signal="pressed" from="GridContainer/Option5/ShotgunButton" to="." method="_on_shotgun_button_pressed"]
+[connection signal="pressed" from="GridContainer/Option6/SniperButton" to="." method="_on_sniper_button_pressed"]
+[connection signal="pressed" from="GridContainer/Option7/RocketButton" to="." method="_on_rocket_button_pressed"]

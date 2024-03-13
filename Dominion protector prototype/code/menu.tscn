@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds27e8hwtu7f4"]
+
+[ext_resource type="FontFile" uid="uid://c34yck4u33u8a" path="res://fonts/Xolonium-Regular.ttf" id="1_uh2s4"]
+[ext_resource type="Script" path="res://code/menu.gd" id="1_waqxn"]
+
+[node name="Menu" type="CanvasLayer"]
+script = ExtResource("1_waqxn")
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_uh2s4")
+theme_override_font_sizes/font_size = 128
+text = "Dominion Protector
+"
+
+[node name="StartButton" type="Button" parent="."]
+custom_minimum_size = Vector2(250, 100)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -116.0
+offset_top = -360.0
+offset_right = 134.0
+offset_bottom = -260.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_uh2s4")
+theme_override_font_sizes/font_size = 64
+text = "Start"
+
+[node name="MessageTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="loadButton" type="Button" parent="."]
+offset_left = 605.0
+offset_top = 891.0
+offset_right = 824.0
+offset_bottom = 958.0
+toggle_mode = true
+text = "Load"
+
+[node name="saveButton" type="Button" parent="."]
+offset_left = 1117.0
+offset_top = 890.0
+offset_right = 1336.0
+offset_bottom = 957.0
+toggle_mode = true
+text = "Controls"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]

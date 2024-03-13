@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvnkqddqewpos"]
+
+[ext_resource type="Script" path="res://code/player/Sword.gd" id="1_0040x"]
+[ext_resource type="Texture2D" uid="uid://bcvmkvl86jbuq" path="res://art/player/weapons/sword.png" id="2_mhk65"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_20act"]
+radius = 1.40883
+height = 18.0
+
+[node name="Sword" type="Area2D"]
+rotation = -0.20944
+scale = Vector2(1.2, 1.2)
+script = ExtResource("1_0040x")
+
+[node name="Sword" type="Sprite2D" parent="."]
+position = Vector2(26.6184, -8.22916)
+rotation = 0.261799
+scale = Vector2(0.0716146, 0.0716146)
+texture = ExtResource("2_mhk65")
+offset = Vector2(-20.2701, 16.4329)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(26.6667, -8.33333)
+rotation = 1.0472
+shape = SubResource("CapsuleShape2D_20act")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

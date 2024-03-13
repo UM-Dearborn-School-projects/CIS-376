@@ -1,0 +1,400 @@
+[gd_resource type="SpriteFrames" load_steps=75 format=3 uid="uid://ce7hbnlv3jy4f"]
+
+[ext_resource type="Texture2D" uid="uid://1yf84abb5jfl" path="res://art/enemies/Archer/Animations/attack/arrow.png" id="1_5khs3"]
+[ext_resource type="Texture2D" uid="uid://jqjqvmyambh3" path="res://art/enemies/color_virus/png105.png" id="1_vme2h"]
+[ext_resource type="Texture2D" uid="uid://c7jn1iacx57qd" path="res://art/enemies/color_virus/png106.png" id="2_c37s0"]
+[ext_resource type="Texture2D" uid="uid://bw2vntx5vci7r" path="res://art/enemies/Archer/Animations/attack/archer_attack_animation.png" id="2_v0xm5"]
+[ext_resource type="Texture2D" uid="uid://c5r2htslp3wrs" path="res://art/enemies/Archer/Animations/idle/archer_idle_animation.png" id="3_bk4el"]
+[ext_resource type="Texture2D" uid="uid://teeqss8an8yq" path="res://art/enemies/color_virus/png107.png" id="3_qvnml"]
+[ext_resource type="Texture2D" uid="uid://d4jsu43d8hi81" path="res://art/enemies/color_virus/png108.png" id="4_s8bjn"]
+[ext_resource type="Texture2D" uid="uid://bwt6bu7jwre76" path="res://art/enemies/Archer/Animations/run/archer_run_animation.png" id="4_tt2yx"]
+[ext_resource type="Texture2D" uid="uid://cpfisde3iw6u4" path="res://art/enemies/color_virus/png109.png" id="5_mdkpa"]
+[ext_resource type="Texture2D" uid="uid://b3vnykytx6lff" path="res://art/enemies/color_virus/png110.png" id="6_y3t2a"]
+[ext_resource type="Texture2D" uid="uid://pviljl3d15x3" path="res://art/enemies/color_virus/png111.png" id="7_00lra"]
+[ext_resource type="Texture2D" uid="uid://ccwxwdgf5fukc" path="res://art/enemies/color_virus/png112.png" id="8_bigic"]
+[ext_resource type="Texture2D" uid="uid://dr46bi1vfftdc" path="res://art/enemies/color_virus/png113.png" id="9_s08io"]
+[ext_resource type="Texture2D" uid="uid://dna4whb4fswv4" path="res://art/enemies/green_virus/png4.png" id="22_uxo3b"]
+[ext_resource type="Texture2D" uid="uid://dpe62gtg2ejwm" path="res://art/enemies/green_virus/png5.png" id="23_0xsjn"]
+[ext_resource type="Texture2D" uid="uid://csi70gr48w2h7" path="res://art/enemies/green_virus/png6.png" id="24_ra60e"]
+[ext_resource type="Texture2D" uid="uid://bc4p1uocp7nk" path="res://art/enemies/green_virus/png7.png" id="25_kxymo"]
+[ext_resource type="Texture2D" uid="uid://cvcwbhvlgmjlk" path="res://art/enemies/green_virus/png8.png" id="26_gh8a7"]
+[ext_resource type="Texture2D" uid="uid://dhyqw3wj0fetg" path="res://art/enemies/green_virus/png12.png" id="27_prqif"]
+[ext_resource type="Texture2D" uid="uid://dukt6wyspbr6m" path="res://art/enemies/green_virus/png25.png" id="28_jd1lc"]
+[ext_resource type="Texture2D" uid="uid://ca3esj4pwesfa" path="res://art/enemies/green_virus/png22.png" id="29_cujv4"]
+[ext_resource type="Texture2D" uid="uid://dwux4tu0fbd0j" path="res://art/enemies/green_virus/png26.png" id="30_wyniw"]
+[ext_resource type="Texture2D" uid="uid://b8ihrh8os4amv" path="res://art/enemies/green_virus/png27.png" id="31_ncs5h"]
+[ext_resource type="Texture2D" uid="uid://c8osgbhbuim6l" path="res://art/enemies/bright_virus/png1.png" id="32_bitr2"]
+[ext_resource type="Texture2D" uid="uid://ce7rhlvoo2uij" path="res://art/enemies/bright_virus/png2.png" id="33_wp6xq"]
+[ext_resource type="Texture2D" uid="uid://cchv6g7bcpwge" path="res://art/enemies/bright_virus/png3.png" id="34_asjmr"]
+[ext_resource type="Texture2D" uid="uid://ee47clk2qr0l" path="res://art/enemies/bright_virus/png9.png" id="35_3yvdd"]
+[ext_resource type="Texture2D" uid="uid://coa63yeght64q" path="res://art/enemies/bright_virus/png11.png" id="36_t71m2"]
+[ext_resource type="Texture2D" uid="uid://bc6ntrjjagc52" path="res://art/enemies/bright_virus/png13.png" id="37_bytky"]
+[ext_resource type="Texture2D" uid="uid://cpdqnto36jalq" path="res://art/enemies/bright_virus/png14.png" id="38_xcw47"]
+[ext_resource type="Texture2D" uid="uid://bmwncn6mp00h3" path="res://art/enemies/bright_virus/png16.png" id="39_qlgy3"]
+[ext_resource type="Texture2D" uid="uid://v7a1ji7dh4j2" path="res://art/enemies/bright_virus/png17.png" id="40_8auil"]
+[ext_resource type="Texture2D" uid="uid://8xikifqy22qt" path="res://art/enemies/bright_virus/png19.png" id="41_6f5j6"]
+[ext_resource type="Texture2D" uid="uid://bjwqh524n78d2" path="res://art/enemies/bright_virus/png20.png" id="42_1hf4w"]
+[ext_resource type="Texture2D" uid="uid://bra52gx2i5grg" path="res://art/enemies/bright_virus/png21.png" id="43_v6vgm"]
+[ext_resource type="Texture2D" uid="uid://qwjevj4bhwjt" path="res://art/enemies/virus/png37.png" id="44_ibhad"]
+[ext_resource type="Texture2D" uid="uid://c0nga2m3mi61g" path="res://art/enemies/virus/png38.png" id="45_gvl2s"]
+[ext_resource type="Texture2D" uid="uid://dvryhefbvjo2q" path="res://art/enemies/virus/png39.png" id="46_4k6vj"]
+[ext_resource type="Texture2D" uid="uid://fnbivl2qqd3q" path="res://art/enemies/virus/png40.png" id="47_sebkl"]
+[ext_resource type="Texture2D" uid="uid://cmhdmtjmjphjx" path="res://art/enemies/virus/png41.png" id="48_j2w72"]
+[ext_resource type="Texture2D" uid="uid://v2ymd3drg522" path="res://art/enemies/virus/png42.png" id="49_psjbm"]
+[ext_resource type="Texture2D" uid="uid://dxe8c110ltpbc" path="res://art/enemies/virus/png43.png" id="50_x8gpm"]
+[ext_resource type="Texture2D" uid="uid://b11jncqo5x3yb" path="res://art/enemies/virus/png44.png" id="51_r4kh2"]
+[ext_resource type="Texture2D" uid="uid://cyttc78k8h5k2" path="res://art/enemies/virus/png45.png" id="52_ccq07"]
+[ext_resource type="Texture2D" uid="uid://dqt1nxw646vq6" path="res://art/enemies/virus/png46.png" id="53_6kkgn"]
+[ext_resource type="Texture2D" uid="uid://bu4y7qnsjkrve" path="res://art/enemies/virus/png47.png" id="54_e1tjv"]
+[ext_resource type="Texture2D" uid="uid://br4bj503c3c2a" path="res://art/enemies/virus/png48.png" id="55_lft23"]
+[ext_resource type="Texture2D" uid="uid://clhj2m5uqu5uy" path="res://art/enemies/virus/png49.png" id="56_trx7t"]
+[ext_resource type="Texture2D" uid="uid://cdh2munbila4s" path="res://art/enemies/virus/png50.png" id="57_xjyc0"]
+[ext_resource type="Texture2D" uid="uid://wkq63q6ulva7" path="res://art/enemies/virus/png51.png" id="58_g0u4d"]
+[ext_resource type="Texture2D" uid="uid://c0r77b3s2daqf" path="res://art/enemies/virus/png52.png" id="59_aaf3q"]
+[ext_resource type="Texture2D" uid="uid://bddtr71wbpxy3" path="res://art/enemies/virus/png53.png" id="60_laymi"]
+[ext_resource type="Texture2D" uid="uid://cnp8obldr1vpd" path="res://art/enemies/virus/png54.png" id="61_atkmc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dh4f6"]
+atlas = ExtResource("2_v0xm5")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j08nw"]
+atlas = ExtResource("2_v0xm5")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xinai"]
+atlas = ExtResource("2_v0xm5")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f48gh"]
+atlas = ExtResource("2_v0xm5")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yh1bi"]
+atlas = ExtResource("2_v0xm5")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5r6a"]
+atlas = ExtResource("2_v0xm5")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6x0he"]
+atlas = ExtResource("2_v0xm5")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yugjn"]
+atlas = ExtResource("3_bk4el")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgl3e"]
+atlas = ExtResource("3_bk4el")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ro8lb"]
+atlas = ExtResource("3_bk4el")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0thu1"]
+atlas = ExtResource("3_bk4el")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4603y"]
+atlas = ExtResource("3_bk4el")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bampk"]
+atlas = ExtResource("3_bk4el")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfupn"]
+atlas = ExtResource("3_bk4el")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6d0y"]
+atlas = ExtResource("4_tt2yx")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0q7na"]
+atlas = ExtResource("4_tt2yx")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgb74"]
+atlas = ExtResource("4_tt2yx")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0svn"]
+atlas = ExtResource("4_tt2yx")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lxvl"]
+atlas = ExtResource("4_tt2yx")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycago"]
+atlas = ExtResource("4_tt2yx")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mdmj"]
+atlas = ExtResource("4_tt2yx")
+region = Rect2(384, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5khs3")
+}],
+"loop": true,
+"name": &"Arrow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dh4f6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j08nw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xinai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f48gh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yh1bi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5r6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6x0he")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yugjn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgl3e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ro8lb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0thu1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4603y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bampk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfupn")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6d0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0q7na")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgb74")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0svn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lxvl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycago")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mdmj")
+}],
+"loop": true,
+"name": &"Move",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vme2h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_c37s0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qvnml")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_s8bjn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mdkpa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_y3t2a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_00lra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_bigic")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_s08io")
+}],
+"loop": true,
+"name": &"color",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_uxo3b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_0xsjn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_ra60e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_kxymo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_gh8a7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_prqif")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_jd1lc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_cujv4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_wyniw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_ncs5h")
+}],
+"loop": true,
+"name": &"green",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("32_bitr2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_wp6xq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_asjmr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_3yvdd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_t71m2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_bytky")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_xcw47")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_qlgy3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_8auil")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_6f5j6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_1hf4w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_v6vgm")
+}],
+"loop": true,
+"name": &"stripe",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("44_ibhad")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_gvl2s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_4k6vj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_sebkl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_j2w72")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_psjbm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_x8gpm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_r4kh2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_ccq07")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_6kkgn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_e1tjv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_lft23")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_trx7t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_xjyc0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_g0u4d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_aaf3q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_laymi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_atkmc")
+}],
+"loop": true,
+"name": &"virus",
+"speed": 5.0
+}]
