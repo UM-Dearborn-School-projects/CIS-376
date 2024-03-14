@@ -1,0 +1,285 @@
+[gd_scene load_steps=4 format=3 uid="uid://cm6j225q27oi0"]
+
+[ext_resource type="Script" path="res://code/other/ShopArea.gd" id="1_7pq5c"]
+[ext_resource type="FontFile" uid="uid://c34yck4u33u8a" path="res://fonts/Xolonium-Regular.ttf" id="2_tsop3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hxv88"]
+radius = 88.0
+
+[node name="ShopArea" type="Area2D"]
+script = ExtResource("1_7pq5c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hxv88")
+
+[node name="Shop" type="CanvasLayer" parent="."]
+
+[node name="BackButton" type="Button" parent="Shop"]
+custom_minimum_size = Vector2(500, 100)
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -504.0
+offset_top = -420.0
+offset_right = -4.0
+offset_bottom = -320.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_tsop3")
+theme_override_font_sizes/font_size = 58
+text = "Back"
+
+[node name="ShopOptions" type="CanvasLayer" parent="Shop"]
+
+[node name="Weapons" type="CanvasLayer" parent="Shop/ShopOptions"]
+
+[node name="PistolButton" type="Button" parent="Shop/ShopOptions/Weapons"]
+custom_minimum_size = Vector2(500, 100)
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -502.0
+offset_top = -308.0
+offset_right = -2.0
+offset_bottom = -208.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_tsop3")
+theme_override_font_sizes/font_size = 58
+text = "Pistol:      $100"
+alignment = 0
+
+[node name="SMGButton" type="Button" parent="Shop/ShopOptions/Weapons"]
+custom_minimum_size = Vector2(500, 100)
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -502.0
+offset_top = -204.0
+offset_right = -2.0
+offset_bottom = -104.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_tsop3")
+theme_override_font_sizes/font_size = 58
+text = "SMG:       $300"
+alignment = 0
+
+[node name="DuetButton" type="Button" parent="Shop/ShopOptions/Weapons"]
+custom_minimum_size = Vector2(500, 100)
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -502.0
+offset_top = -100.0
+offset_right = -2.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_tsop3")
+theme_override_font_sizes/font_size = 58
+text = "Duet:       $500"
+alignment = 0
+
+[node name="ShotgunButton" type="Button" parent="Shop/ShopOptions/Weapons"]
+custom_minimum_size = Vector2(500, 100)
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -502.0
+offset_top = 4.0
+offset_right = -2.0
+offset_bottom = 104.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_tsop3")
+theme_override_font_sizes/font_size = 58
+text = "Shotgun: $600"
+alignment = 0
+
+[node name="SniperButton" type="Button" parent="Shop/ShopOptions/Weapons"]
+custom_minimum_size = Vector2(500, 100)
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -504.0
+offset_top = 108.0
+offset_right = -2.0
+offset_bottom = 208.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_tsop3")
+theme_override_font_sizes/font_size = 58
+text = "Sniper:    $1000"
+alignment = 0
+
+[node name="RocketButton" type="Button" parent="Shop/ShopOptions/Weapons"]
+custom_minimum_size = Vector2(500, 100)
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -502.0
+offset_top = 212.0
+offset_right = -2.0
+offset_bottom = 312.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_tsop3")
+theme_override_font_sizes/font_size = 58
+text = "Rocket:   $1500"
+alignment = 0
+
+[node name="Utility" type="CanvasLayer" parent="Shop/ShopOptions"]
+
+[node name="HealthButton" type="Button" parent="Shop/ShopOptions/Utility"]
+custom_minimum_size = Vector2(500, 100)
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -496.0
+offset_top = -164.0
+offset_right = 4.0
+offset_bottom = -64.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_tsop3")
+theme_override_font_sizes/font_size = 58
+text = "Health:      $50"
+alignment = 0
+
+[node name="Upgrades" type="CanvasLayer" parent="Shop/ShopOptions"]
+
+[node name="SpeedButton" type="Button" parent="Shop/ShopOptions/Upgrades"]
+custom_minimum_size = Vector2(500, 100)
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -504.0
+offset_top = -164.0
+offset_right = -4.0
+offset_bottom = -64.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_tsop3")
+theme_override_font_sizes/font_size = 58
+text = "Speed:     $200"
+alignment = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="UpgradeButton" type="Button" parent="Shop/ShopOptions"]
+custom_minimum_size = Vector2(500, 100)
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -504.0
+offset_top = 60.0
+offset_right = -4.0
+offset_bottom = 160.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_tsop3")
+theme_override_font_sizes/font_size = 58
+text = "Upgrades"
+
+[node name="UtilityButton" type="Button" parent="Shop/ShopOptions"]
+custom_minimum_size = Vector2(500, 100)
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -504.0
+offset_top = -52.0
+offset_right = -4.0
+offset_bottom = 48.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_tsop3")
+theme_override_font_sizes/font_size = 58
+text = "Utility"
+
+[node name="WeaponButton" type="Button" parent="Shop/ShopOptions"]
+custom_minimum_size = Vector2(500, 100)
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -504.0
+offset_top = -164.0
+offset_right = -4.0
+offset_bottom = -64.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_tsop3")
+theme_override_font_sizes/font_size = 58
+text = "Weapons"
+
+[node name="SaveButton" type="Button" parent="Shop/ShopOptions"]
+custom_minimum_size = Vector2(200, 100)
+offset_left = 632.0
+offset_top = 768.0
+offset_right = 832.0
+offset_bottom = 868.0
+text = "Save"
+
+[node name="LoadButton" type="Button" parent="Shop/ShopOptions"]
+custom_minimum_size = Vector2(200, 100)
+offset_left = 1024.0
+offset_top = 768.0
+offset_right = 1224.0
+offset_bottom = 868.0
+text = "Load"
+
+[node name="ShopButton" type="Button" parent="Shop"]
+custom_minimum_size = Vector2(500, 100)
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -50.0
+offset_bottom = 50.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_tsop3")
+theme_override_font_sizes/font_size = 58
+text = "Shop"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="pressed" from="Shop/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Shop/ShopOptions/Weapons/PistolButton" to="." method="_on_pistol_button_pressed"]
+[connection signal="pressed" from="Shop/ShopOptions/Weapons/SMGButton" to="." method="_on_smg_button_pressed"]
+[connection signal="pressed" from="Shop/ShopOptions/Weapons/DuetButton" to="." method="_on_duet_button_pressed"]
+[connection signal="pressed" from="Shop/ShopOptions/Weapons/ShotgunButton" to="." method="_on_shotgun_button_pressed"]
+[connection signal="pressed" from="Shop/ShopOptions/Weapons/SniperButton" to="." method="_on_sniper_button_pressed"]
+[connection signal="pressed" from="Shop/ShopOptions/Weapons/RocketButton" to="." method="_on_rocket_button_pressed"]
+[connection signal="pressed" from="Shop/ShopOptions/Utility/HealthButton" to="." method="_on_health_button_pressed"]
+[connection signal="pressed" from="Shop/ShopOptions/Upgrades/SpeedButton" to="." method="_on_speed_button_pressed"]
+[connection signal="pressed" from="Shop/ShopOptions/UpgradeButton" to="." method="_on_upgrade_button_pressed"]
+[connection signal="pressed" from="Shop/ShopOptions/UtilityButton" to="." method="_on_utility_button_pressed"]
+[connection signal="pressed" from="Shop/ShopOptions/WeaponButton" to="." method="_on_weapon_button_pressed"]
+[connection signal="pressed" from="Shop/ShopOptions/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="Shop/ShopOptions/LoadButton" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="Shop/ShopButton" to="." method="_on_shop_button_pressed"]

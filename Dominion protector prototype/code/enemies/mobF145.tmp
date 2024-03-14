@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://lrr4xfvy4oy"]
+
+[ext_resource type="Script" path="res://code/enemies/mob.gd" id="1_mvh7p"]
+[ext_resource type="SpriteFrames" uid="uid://ce7hbnlv3jy4f" path="res://art/enemies/mele_enemy.tres" id="2_ubv6w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tl3f4"]
+radius = 29.0172
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3h7di"]
+radius = 32.0
+
+[node name="Mob" type="CharacterBody2D" groups=["mob"]]
+script = ExtResource("1_mvh7p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+sprite_frames = ExtResource("2_ubv6w")
+animation = &"color"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tl3f4")
+
+[node name="EventTriger" type="Area2D" parent="."]
+
+[node name="EventArea" type="CollisionShape2D" parent="EventTriger"]
+shape = SubResource("CircleShape2D_3h7di")
+
+[connection signal="area_entered" from="EventTriger" to="." method="_on_event_triger_area_entered"]
+[connection signal="body_entered" from="EventTriger" to="." method="_on_event_triger_body_entered"]

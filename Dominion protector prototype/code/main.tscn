@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://cwi0icxvbohko"]
+
+[ext_resource type="Script" path="res://code/main.gd" id="1_8y441"]
+[ext_resource type="PackedScene" uid="uid://bkdjrxkoinvcx" path="res://code/player/player.tscn" id="1_hxk3n"]
+[ext_resource type="PackedScene" uid="uid://ds27e8hwtu7f4" path="res://code/menu.tscn" id="2_ikn2h"]
+[ext_resource type="PackedScene" uid="uid://b03v6n31m2wtc" path="res://code/buildings/base.tscn" id="4_6nqjk"]
+[ext_resource type="AudioStream" uid="uid://dmxl07a2h6tk0" path="res://art/sound/House In a Forest Loop.ogg" id="5_p2uow"]
+[ext_resource type="AudioStream" uid="uid://57iygy08tylw" path="res://art/sound/gameover.wav" id="6_31kji"]
+[ext_resource type="PackedScene" uid="uid://lrr4xfvy4oy" path="res://code/enemies/mob.tscn" id="7_aghbg"]
+[ext_resource type="PackedScene" uid="uid://dby34b7l7v5uj" path="res://code/player/inventory.tscn" id="8_1117e"]
+[ext_resource type="Script" path="res://saver_loader.gd" id="9_ookwg"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_s4c63"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_8y441")
+mob_scene = ExtResource("7_aghbg")
+
+[node name="Menu" parent="." instance=ExtResource("2_ikn2h")]
+
+[node name="GameObjects" type="Node" parent="."]
+
+[node name="Music" type="AudioStreamPlayer" parent="GameObjects"]
+stream = ExtResource("5_p2uow")
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="GameObjects"]
+stream = ExtResource("6_31kji")
+
+[node name="StartTimer" type="Timer" parent="GameObjects"]
+
+[node name="ColorRect" type="ColorRect" parent="GameObjects"]
+visible = false
+light_mask = 0
+offset_left = -79.0
+offset_top = -63.0
+offset_right = 2029.0
+offset_bottom = 1133.0
+color = Color(0.262745, 0.517647, 0.560784, 1)
+
+[node name="GetReadyTimer" type="Timer" parent="GameObjects"]
+
+[node name="PlayerObjects" type="Node" parent="."]
+
+[node name="Player" parent="PlayerObjects" instance=ExtResource("1_hxk3n")]
+unique_name_in_owner = true
+collision_layer = 0
+
+[node name="PlayerStartPosition" type="Marker2D" parent="PlayerObjects/Player"]
+position = Vector2(960, 700)
+
+[node name="Base" parent="PlayerObjects" node_paths=PackedStringArray("player", "save") instance=ExtResource("4_6nqjk")]
+player = NodePath("../Player")
+save = NodePath("../../SaverLoader")
+
+[node name="BaseStartPosition" type="Marker2D" parent="PlayerObjects/Base"]
+position = Vector2(960, 540)
+
+[node name="Inventory" parent="PlayerObjects" node_paths=PackedStringArray("player") instance=ExtResource("8_1117e")]
+offset_left = -437.5
+offset_top = -100.0
+offset_right = 437.5
+texture = SubResource("ViewportTexture_s4c63")
+player = NodePath("../Player")
+
+[node name="EnemyObjects" type="Node" parent="."]
+
+[node name="EnemySpawn" type="Marker2D" parent="EnemyObjects"]
+position = Vector2(944, 34)
+
+[node name="EnemyTimer" type="Timer" parent="EnemyObjects"]
+
+[node name="SaverLoader" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("9_ookwg")
+
+[connection signal="start_game" from="Menu" to="." method="new_game"]
+[connection signal="dead" from="PlayerObjects/Player" to="." method="game_over"]
+[connection signal="update_inv" from="PlayerObjects/Player" to="PlayerObjects/Inventory" method="update"]
+[connection signal="dead" from="PlayerObjects/Base" to="." method="game_over"]
+[connection signal="timeout" from="EnemyObjects/EnemyTimer" to="." method="_on_enemy_timer_timeout"]

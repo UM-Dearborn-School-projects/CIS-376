@@ -1,0 +1,103 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvnkqddqewpos"]
+
+[ext_resource type="Script" path="res://code/player/Sword.gd" id="1_0040x"]
+[ext_resource type="Texture2D" uid="uid://bcvmkvl86jbuq" path="res://art/player/weapons/sword.png" id="2_mhk65"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_20act"]
+radius = 1.40883
+height = 18.0
+
+[sub_resource type="Animation" id="Animation_4bvmj"]
+resource_name = "RESET"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.523599]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_68lc2"]
+resource_name = "attack"
+length = 0.35
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.523599, 1.39626]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mtpgc"]
+_data = {
+"RESET": SubResource("Animation_4bvmj"),
+"attack": SubResource("Animation_68lc2")
+}
+
+[node name="Sword" type="Area2D"]
+rotation = 0.523599
+scale = Vector2(1.2, 1.2)
+script = ExtResource("1_0040x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(11.3456, -28.6822)
+rotation = 0.362311
+shape = SubResource("CapsuleShape2D_20act")
+disabled = true
+
+[node name="Sword" type="Sprite2D" parent="CollisionShape2D"]
+position = Vector2(0.0660667, 0.093914)
+rotation = -0.741971
+scale = Vector2(0.0716146, 0.0716146)
+texture = ExtResource("2_mhk65")
+offset = Vector2(-20.2701, 16.4329)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mtpgc")
+}
+
+[node name="AnimationTimer" type="Timer" parent="."]
+wait_time = 0.3
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="AnimationTimer" to="." method="_on_animation_timer_timeout"]

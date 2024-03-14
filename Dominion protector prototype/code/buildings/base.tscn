@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://b03v6n31m2wtc"]
+
+[ext_resource type="Texture2D" uid="uid://cb8870m725uqc" path="res://art/buildings/main/body_tracks.png" id="2_m68al"]
+[ext_resource type="Script" path="res://code/buildings/base.gd" id="2_ujo36"]
+[ext_resource type="PackedScene" uid="uid://b084bo6khvkyq" path="res://code/buildings/turet.tscn" id="3_kbt6e"]
+[ext_resource type="PackedScene" uid="uid://cm6j225q27oi0" path="res://code/other/shop_area.tscn" id="4_ro3rv"]
+[ext_resource type="Script" path="res://code/buildings/DamageAreaBase.gd" id="5_h2wvt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2pw1"]
+size = Vector2(68, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mp3j2"]
+size = Vector2(75, 84)
+
+[node name="Base" type="StaticBody2D"]
+script = ExtResource("2_ujo36")
+
+[node name="BodyTracks" type="Sprite2D" parent="."]
+texture = ExtResource("2_m68al")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_i2pw1")
+
+[node name="Turet" parent="." instance=ExtResource("3_kbt6e")]
+
+[node name="ShopArea" parent="." instance=ExtResource("4_ro3rv")]
+
+[node name="DamageArea" type="Area2D" parent="." groups=["base"]]
+script = ExtResource("5_h2wvt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+position = Vector2(-0.5, 2)
+shape = SubResource("RectangleShape2D_mp3j2")
+
+[connection signal="dead" from="DamageArea" to="." method="_on_damage_area_dead"]

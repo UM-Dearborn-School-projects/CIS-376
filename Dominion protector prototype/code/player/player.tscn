@@ -1,0 +1,96 @@
+[gd_scene load_steps=12 format=3 uid="uid://bkdjrxkoinvcx"]
+
+[ext_resource type="Script" path="res://code/player/player.gd" id="1_lcf1r"]
+[ext_resource type="Texture2D" uid="uid://dwfy7x54jy1oy" path="res://art/player/character/playerGrey_up1.png" id="2_iwn24"]
+[ext_resource type="Texture2D" uid="uid://qc4rsxyr2wna" path="res://art/player/character/playerGrey_up2.png" id="3_6wj10"]
+[ext_resource type="Texture2D" uid="uid://c6g1en8uia7w3" path="res://art/player/character/playerGrey_walk1.png" id="4_xckma"]
+[ext_resource type="Texture2D" uid="uid://cvr1722fuojda" path="res://art/player/character/playerGrey_walk2.png" id="5_0mpk7"]
+[ext_resource type="FontFile" uid="uid://c34yck4u33u8a" path="res://fonts/Xolonium-Regular.ttf" id="7_evhow"]
+[ext_resource type="Script" path="res://code/player/DamageArea.gd" id="7_nrxxt"]
+[ext_resource type="PackedScene" uid="uid://bkj2v2cn4y301" path="res://code/player/weapon_selection.tscn" id="9_j722a"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8lpgw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_iwn24")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6wj10")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_xckma")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0mpk7")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yn1d6"]
+radius = 19.0
+height = 48.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cv5qy"]
+radius = 22.0
+height = 52.0
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_lcf1r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+sprite_frames = SubResource("SpriteFrames_8lpgw")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_yn1d6")
+
+[node name="DamageArea" type="Area2D" parent="." groups=["player"]]
+script = ExtResource("7_nrxxt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+shape = SubResource("CapsuleShape2D_cv5qy")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MoneyCounter" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("7_evhow")
+theme_override_font_sizes/font_size = 64
+text = "0"
+
+[node name="Health" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 66.0
+offset_top = -130.0
+offset_right = 156.0
+offset_bottom = -52.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_evhow")
+theme_override_font_sizes/font_size = 64
+text = "10/20"
+
+[node name="WeaponSelection" parent="." node_paths=PackedStringArray("player") instance=ExtResource("9_j722a")]
+player = NodePath("..")
+
+[connection signal="area_entered" from="DamageArea" to="." method="_on_area_2d_area_entered"]
+[connection signal="dead" from="DamageArea" to="." method="dead_signal"]
