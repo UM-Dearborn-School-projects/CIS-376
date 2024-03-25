@@ -8,9 +8,10 @@ func save_game():
 	
 	var saved_game:SavedGame = SavedGame.new()
 	
-	saved_game.player_health = player.health
-	saved_game.player_money = player.money
-	saved_game.player_position = player.global_position
+	saved_game.player_health = player.health # Saving player health
+	saved_game.player_money = player.money # Saving players money
+	saved_game.player_position = player.global_position # saving players position
+	saved_game.player_speed = player.speed # Saving players current speed
 	
 	# needed for saving enemy positions.
 	for cell in get_tree().get_nodes_in_group("cell"):
@@ -22,9 +23,11 @@ func save_game():
 func load_game():
 	var saved_game:SavedGame = load("user://savegame.tres") as SavedGame
 	
-	player.money = saved_game.player_money
-	player.health = saved_game.player_health
+	# Reloading from file
+	player.money = saved_game.player_money 
+	player.set_health(saved_game.player_health) # setting the players health to what was saved in the file
 	player.global_position = saved_game.player_position
+	player.speed = saved_game.player_speed
 	
 	for cell in get_tree().get_nodes_in_group("cell"):
 		cell.get_parent().remove_child(cell)

@@ -4,6 +4,7 @@ extends Resource
 @export var player_position:Vector2
 @export var player_health:float
 @export var player_money:int
+@export var player_speed:int
 
 #array for saving cell positions
 @export var cell_positions:Array[Vector2] = []
