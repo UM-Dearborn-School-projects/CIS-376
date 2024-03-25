@@ -1,5 +1,9 @@
 extends Node2D
 
+"""
+This class manages the game state and determines when and how game objects are shown
+"""
+
 @onready var _saver_loader:SaverLoader = %SaverLoader
 @export var mob_scene: PackedScene
 
@@ -14,7 +18,7 @@ func _ready():
 func _process(delta):
 	pass
 
-# creates a new game and enablesfunctionality of of objects
+# creates a new game and enables functionality of of objects
 func new_game():
 	get_tree().call_group("mobs", "queue_free")
 	#$GameObjects/Music.play()
@@ -26,7 +30,7 @@ func new_game():
 	$PlayerObjects/Base.start($PlayerObjects/Base/BaseStartPosition.position)
 	$GameObjects/StartTimer.start()
 
-# the game over or loss condition
+# the game over or loss condition, This stops the game and sets the main menu
 func game_over():
 	$PlayerObjects/Inventory.hide()
 	$GameObjects/Music.stop()
@@ -34,7 +38,7 @@ func game_over():
 	$Menu.show_game_over()
 	stop_processes()
 
-# disables functionality of objects
+# disables functionality of objects within the game after game_over()
 func stop_processes():
 	$PlayerObjects/Player.stop()
 	$PlayerObjects/Base.stop()

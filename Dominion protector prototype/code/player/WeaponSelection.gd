@@ -1,5 +1,12 @@
 extends Node2D
 
+"""
+This class manages player weapon selection, more specificly which weapon
+is currently being used and which weapon will be attacking. It requires the
+player to already have the weapon and checks this by making a call to the player get{weapons}
+functions when switching weapons.
+"""
+
 @export var player : CharacterBody2D
 var option
 var previous
@@ -27,10 +34,12 @@ func _process(delta):
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		attack(option)
 
+# disable all weapons and hide them
 func disable_all():
 	$Sword.disable()
 	$Gun.disable()
 
+# attack using the current weapon that the player has selected
 func attack(option):
 	if option == 1 && player.get_sword():
 		$Sword.attack()
@@ -47,6 +56,7 @@ func attack(option):
 	elif option == 7:
 		pass
 
+# disable a single weapon given a numeric option (1-7)
 func disable(option):
 	if option == 1:
 		$Sword.disable()
@@ -63,6 +73,7 @@ func disable(option):
 	elif option == 7:
 		pass
 
+# enable a single weapon given a numeric option (1-7)
 func enable(option):
 	if option == 1 && player.get_sword():
 		$Sword.enable()
