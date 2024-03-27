@@ -26,11 +26,14 @@ func stop():
 	# disable the colision detection so that it will not triger more than once
 	$CollisionShape2D.set_deferred("disabled", true)
 
+# End game condition
 func _on_damage_area_dead():
 	dead.emit()
 
+# Returns an instance of player
 func get_player():
 	return player
 
+# Returns an instance of the save script
 func get_save():
 	return save
