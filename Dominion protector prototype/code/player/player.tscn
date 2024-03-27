@@ -1,12 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://bkdjrxkoinvcx"]
+[gd_scene load_steps=14 format=3 uid="uid://bkdjrxkoinvcx"]
 
 [ext_resource type="Script" path="res://code/player/player.gd" id="1_lcf1r"]
 [ext_resource type="Texture2D" uid="uid://dwfy7x54jy1oy" path="res://art/player/character/playerGrey_up1.png" id="2_iwn24"]
 [ext_resource type="Texture2D" uid="uid://qc4rsxyr2wna" path="res://art/player/character/playerGrey_up2.png" id="3_6wj10"]
 [ext_resource type="Texture2D" uid="uid://c6g1en8uia7w3" path="res://art/player/character/playerGrey_walk1.png" id="4_xckma"]
 [ext_resource type="Texture2D" uid="uid://cvr1722fuojda" path="res://art/player/character/playerGrey_walk2.png" id="5_0mpk7"]
+[ext_resource type="AudioStream" uid="uid://dx1ljy2lwdqss" path="res://art/sound/hitHurt.wav" id="7_237r8"]
 [ext_resource type="FontFile" uid="uid://c34yck4u33u8a" path="res://fonts/Xolonium-Regular.ttf" id="7_evhow"]
 [ext_resource type="Script" path="res://code/player/DamageArea.gd" id="7_nrxxt"]
+[ext_resource type="AudioStream" uid="uid://docayjucvki2a" path="res://art/sound/pickupCoin.wav" id="9_4wd03"]
 [ext_resource type="PackedScene" uid="uid://bkj2v2cn4y301" path="res://code/player/weapon_selection.tscn" id="9_j722a"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8lpgw"]
@@ -59,6 +61,9 @@ script = ExtResource("7_nrxxt")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
 shape = SubResource("CapsuleShape2D_cv5qy")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="DamageArea"]
+stream = ExtResource("7_237r8")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MoneyCounter" type="Label" parent="CanvasLayer"]
@@ -90,7 +95,11 @@ theme_override_font_sizes/font_size = 64
 text = "10/20"
 
 [node name="WeaponSelection" parent="." node_paths=PackedStringArray("player") instance=ExtResource("9_j722a")]
+unique_name_in_owner = true
 player = NodePath("..")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_4wd03")
 
 [connection signal="area_entered" from="DamageArea" to="." method="_on_area_2d_area_entered"]
 [connection signal="dead" from="DamageArea" to="." method="dead_signal"]

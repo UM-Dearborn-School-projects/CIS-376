@@ -6,6 +6,8 @@ var mob_array = []
 var clean_array = []
 var target_enemy
 
+const BULLET = preload("res://code/projectiles/bullet.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	can_shoot = false
@@ -27,7 +29,6 @@ func target():
 # shoot a bullet
 func shoot():
 	$Pivot/AnimatedSprite2D.animation = "attack"
-	const BULLET = preload("res://code/projectiles/bullet.tscn")
 	var new_bullet = BULLET.instantiate()
 	new_bullet.set_damage(damage)
 	new_bullet.global_position = %ShootingPoint.global_position

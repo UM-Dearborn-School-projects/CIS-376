@@ -25,12 +25,12 @@ signal update_inv
 # Initiates the player instance
 func _ready():
 	sword = true
-	pistol = false
-	smg = false
-	duet = false
-	shotgun = false
-	sniper= false
-	rocket = false
+	pistol = true
+	smg = true
+	duet = true
+	shotgun = true
+	sniper= true
+	rocket = true
 	
 	option = 0;
 	
@@ -72,11 +72,14 @@ func movement(delta):
 # allows the player to collect money
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("coin"):
+		$AudioStreamPlayer2D.play()
 		money += area.get_value()
 		area.queue_free()
 
 # End game condition
 func dead_signal():
+	money = 0
+	update()
 	dead.emit()
 
 # enable functionality
