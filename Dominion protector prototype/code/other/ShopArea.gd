@@ -12,7 +12,12 @@ var player : CharacterBody2D
 var state
 
 #cost of items can be adjusted here
-var pistol_cost = 100
+var pistol_cost = 10
+var smg_cost = 30
+var duet_cost = 40
+var shotgun_cost = 60
+var sniper_cost = 80
+var rocket_cost = 100
 
 var health_cost = 50
 var health_amount = 5
@@ -119,23 +124,38 @@ func _on_pistol_button_pressed():
 
 # purchase the smg
 func _on_smg_button_pressed():
-	pass # Replace with function body.
+	if(has_money(smg_cost)):
+		reduce_money(smg_cost)
+		$Shop/ShopOptions/Weapons/SMGButton.disabled = true
+		player.set_smg(true)
 
 # purchase the duet
 func _on_duet_button_pressed():
-	pass # Replace with function body.
+	if(has_money(duet_cost)):
+		reduce_money(duet_cost)
+		$Shop/ShopOptions/Weapons/DuetButton.disabled = true
+		player.set_duet(true)
 
 # purchase the shotgun
 func _on_shotgun_button_pressed():
-	pass # Replace with function body.
+	if(has_money(shotgun_cost)):
+		reduce_money(shotgun_cost)
+		$Shop/ShopOptions/Weapons/ShotgunButton.disabled = true
+		player.set_shotgun(true)
 
 # purchase the sniper
 func _on_sniper_button_pressed():
-	pass # Replace with function body.
+	if(has_money(sniper_cost)):
+		reduce_money(sniper_cost)
+		$Shop/ShopOptions/Weapons/SniperButton.disabled = true
+		player.set_sniper(true)
 
 # purchase the rocket
 func _on_rocket_button_pressed():
-	pass # Replace with function body.
+	if(has_money(rocket_cost)):
+		reduce_money(rocket_cost)
+		$Shop/ShopOptions/Weapons/RocketButton.disabled = true
+		player.set_rocket(true)
 
 # purchase health
 func _on_health_button_pressed():

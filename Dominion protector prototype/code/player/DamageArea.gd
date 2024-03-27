@@ -11,6 +11,7 @@ func _ready():
 func _process(delta):
 	pass
 
+# increase health by this amount
 func add_health(health):
 	self.health += health
 	if(self.health >= 20):
@@ -21,7 +22,9 @@ func set_health(health):
 	self.health = health
 	%Health.text = str(health) + "/20"
 
+# remove health by this amount
 func take_damage(damage):
+	$AudioStreamPlayer2D.play()
 	health -= damage
 	%Health.text = str(health) + "/20"
 	if(health <= 0):

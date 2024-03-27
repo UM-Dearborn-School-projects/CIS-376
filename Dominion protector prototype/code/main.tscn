@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://57iygy08tylw" path="res://art/sound/gameover.wav" id="6_31kji"]
 [ext_resource type="PackedScene" uid="uid://lrr4xfvy4oy" path="res://code/enemies/mob.tscn" id="7_aghbg"]
 [ext_resource type="PackedScene" uid="uid://dby34b7l7v5uj" path="res://code/player/inventory.tscn" id="8_1117e"]
-[ext_resource type="Script" path="res://saver_loader.gd" id="9_ookwg"]
+[ext_resource type="Script" path="res://code/other/saver_loader.gd" id="9_ookwg"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_s4c63"]
 

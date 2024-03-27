@@ -23,6 +23,7 @@ func _process(delta):
 # The animation then disables the colision at the end.
 func attack():
 	if(can_shoot):
+		$AudioStreamPlayer2D.play()
 		can_shoot = false
 		$CollisionShape2D.disabled = false
 		animation.play("attack")

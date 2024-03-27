@@ -1,6 +1,16 @@
+class_name Gun
+
 extends Area2D
 
 var can_shoot
+var damage = 2
+var range = 600
+var speed = 600
+
+# this variable will varry the rotation spawn so that it simulates accuracy
+var accuracy = .2
+
+const BULLET = preload("res://code/projectiles/bullet.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,14 +20,28 @@ func _ready():
 func _process(delta):
 	pass
 
+# create a bullet at the current viewing angle with a random rotation
 func attack():
 	if can_shoot:
-		const BULLET = preload("res://code/projectiles/bullet.tscn")
 		var new_bullet = BULLET.instantiate()
-		new_bullet.global_position = %ShootingPoint.global_position
-		new_bullet.global_rotation = %ShootingPoint.global_rotation
-		%ShootingPoint.add_child(new_bullet)
+		
+		new_bullet.set_damage(damage)
+		new_bullet.set_speed(speed)
+		new_bullet.set_range(range)
+		play_sound()
+		
+		new_bullet.global_position = $Pivot/Weapon/ShootingPoint.global_position
+		new_bullet.global_rotation = $Pivot/Weapon/ShootingPoint.global_rotation + randf_range(-accuracy,accuracy)
+		
+		owner.add_child(new_bullet)
 		reset()
+
+func play_sound():
+	$AudioStreamPlayer2D.play()
+
+# set the weapon damage
+func set_damage(damage):
+	self.damage = damage
 
 # reset the timer upon fireing 
 func reset():
@@ -28,12 +52,21 @@ func reset():
 func disable():
 	can_shoot = false
 	$Timer.stop()
-	$Pivot/gun1.hide()
+	$Pivot/Weapon.hide()
 
 # enable the functionality of the gun and show it
 func enable():
 	$Timer.start()
-	$Pivot/gun1.show()
+	$Pivot/Weapon.show()
+
+func set_accuracy(accuracy):
+	self.accuracy = accuracy
+
+func set_range(range):
+	self.range = range
+
+func set_speed(speed):
+	self.speed = speed
 
 # the cooldown for the interval of player attack
 func _on_timer_timeout():

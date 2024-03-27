@@ -16,3 +16,7 @@ func get_value():
 
 func set_value(value):
 	amount = value
+
+
+func _on_timer_timeout():
+	queue_free()
