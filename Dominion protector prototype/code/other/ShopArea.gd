@@ -9,15 +9,16 @@ when a player colides with a colision shape.
 var save : Node
 # player instance
 var player : CharacterBody2D
+var base : StaticBody2D
 var state
 
 #cost of items can be adjusted here
-var pistol_cost = 10
-var smg_cost = 30
-var duet_cost = 40
-var shotgun_cost = 60
-var sniper_cost = 80
-var rocket_cost = 100
+var pistol_cost = 100
+var smg_cost = 300
+var duet_cost = 300
+var shotgun_cost = 500
+var sniper_cost = 800
+var rocket_cost = 1000
 
 var health_cost = 50
 var health_amount = 5
@@ -25,9 +26,13 @@ var health_amount = 5
 var speed_cost = 200
 var speed_amount = 10
 
+var damage_cost = 500
+var atack_speed_cost = 1000
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	player = get_parent().get_player()
+	player = get_node("/root/Main/PlayerObjects/Player")
+	base = get_node("/root/Main/PlayerObjects/Base")
 	save = get_parent().get_save()
 	state = 0
 	hide_all()
@@ -178,3 +183,15 @@ func _on_load_button_pressed():
 func _on_save_button_pressed():
 	print("Save game")
 	save.save_game()
+
+func _on_base_damage_pressed():
+	if(has_money(damage_cost)):
+		reduce_money(damage_cost)
+		base.add_damage()
+		$Shop/ShopOptions/Upgrades/BaseDamage.disabled = true
+
+func _on_base_atk_spd_pressed():
+	if(has_money(atack_speed_cost)):
+		reduce_money(atack_speed_cost)
+		base.add_speed()
+		$Shop/ShopOptions/Upgrades/BaseAtkSpd.disabled = true

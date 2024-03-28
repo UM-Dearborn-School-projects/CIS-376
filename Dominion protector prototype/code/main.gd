@@ -25,32 +25,40 @@ func new_game():
 	$Menu.show_message("Get Ready")
 	await get_tree().create_timer(2.1).timeout
 	$PlayerObjects/Inventory.show()
-	$EnemyObjects/EnemyTimer.start()
+	#$EnemyObjects/EnemyTimer.start()
 	$PlayerObjects/Player.start($PlayerObjects/Player/PlayerStartPosition.position)
 	$PlayerObjects/Base.start($PlayerObjects/Base/BaseStartPosition.position)
+	$EnemyObjects/Enemyspawner.start()
 	$GameObjects/StartTimer.start()
+	$EnemyObjects/Enemyspawner.set_allowed(true)
 
 # the game over or loss condition, This stops the game and sets the main menu
 func game_over():
+	get_tree().paused = true
+	await get_tree().create_timer(1).timeout
+	get_tree().paused = false
+	
 	$PlayerObjects/Inventory.hide()
 	$GameObjects/Music.stop()
 	$GameObjects/GameOverSound.play() 
 	$Menu.show_game_over()
 	stop_processes()
+	$EnemyObjects/Enemyspawner.set_allowed(false)
 
 # disables functionality of objects within the game after game_over()
 func stop_processes():
 	$PlayerObjects/Player.stop()
 	$PlayerObjects/Base.stop()
-	$EnemyObjects/EnemyTimer.stop()
+	$EnemyObjects/Enemyspawner.stop()
+	#$EnemyObjects/EnemyTimer.stop()
 	get_tree().call_group("mob", "queue_free")
 	get_tree().call_group("coin", "queue_free")
 
-# spawns enemies through the timer interval
-func _on_enemy_timer_timeout():
-	var mob = mob_scene.instantiate()
-
-	var mob_spawn_location = $EnemyObjects/EnemySpawn
-	mob.position = mob_spawn_location.position
-	
-	add_child(mob)
+# spawns enemies through the timer interval (disabled)
+#func _on_enemy_timer_timeout():
+	#var mob = mob_scene.instantiate()
+#
+	#var mob_spawn_location = $EnemyObjects/EnemySpawn
+	#mob.position = mob_spawn_location.position
+	#
+	#add_child(mob)

@@ -26,6 +26,15 @@ func _process(delta):
 	mouse_position = get_global_mouse_position()
 	look_at(mouse_position)
 	
+	var mouseLocFromPlayer = get_global_mouse_position() - self.position
+	
+	var angle = atan2(mouseLocFromPlayer.y, mouseLocFromPlayer.x)
+	
+	if mouseLocFromPlayer.x < -10:
+		scale.x = -1
+	elif mouseLocFromPlayer.x >= 10:
+		scale.x = 1
+	
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		attack(option)
 
@@ -99,13 +108,13 @@ func enable(option):
 		$Sword.enable()
 	elif option == 2 && player.get_pistol():
 		$Gun.enable()
-	elif option == 3:
+	elif option == 3 && player.get_smg():
 		$SMG.enable()
-	elif option == 4:
+	elif option == 4 && player.get_duet():
 		$Duet.enable()
-	elif option == 5:
+	elif option == 5 && player.get_shotgun():
 		$Shotgun.enable()
-	elif option == 6:
+	elif option == 6 && player.get_sniper():
 		$Sniper.enable()
-	elif option == 7:
+	elif option == 7 && player.get_rocket():
 		$Rocket.enable()

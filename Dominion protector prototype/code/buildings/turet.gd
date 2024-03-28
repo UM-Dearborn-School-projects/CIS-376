@@ -17,6 +17,9 @@ func _physics_process(delta):
 	detect_mobs()
 	target()
 
+func set_damage(damage):
+	self.damage = damage
+
 # Find the closest enemy
 func target():
 	if(target_enemy != null):
@@ -39,6 +42,9 @@ func shoot():
 func start_timer():
 	$ShootingTimer.start()
 	$AnimationTimer.start()
+
+func reduce_timer():
+	$ShootingTimer.set_wait_time(2)
 
 # Reset the functionality
 func reset():
@@ -63,8 +69,7 @@ func detect_mobs():
 	mob_array.clear()
 	
 	for mob in clean_array:
-		if is_instance_valid(mob):
-			mob_array.append(mob)
+		mob_array.append(mob)
 	
 	clean_array.clear()
 	
@@ -72,17 +77,16 @@ func detect_mobs():
 		var current_position = position
 		var max_dif = 999999
 		var diffrance 
-		var i = 0
-		var flag = 0  
+		var flag
 		
-		for mob in mob_array:
-			diffrance = current_position.distance_to(mob.position)
+		for i in mob_array.size():
+			diffrance = current_position.distance_to(mob_array[i].position)
 			if(diffrance < max_dif):
 				max_dif = diffrance
 				flag = i
 			i += 1
-		
-		target_enemy = mob_array[flag]
+			
+			target_enemy = mob_array[flag]
 
 # disable animation
 func _on_animation_timer_timeout():

@@ -32,8 +32,10 @@ theme_override_font_sizes/font_size = 58
 text = "Back"
 
 [node name="ShopOptions" type="CanvasLayer" parent="Shop"]
+visible = false
 
 [node name="Weapons" type="CanvasLayer" parent="Shop/ShopOptions"]
+visible = false
 
 [node name="PistolButton" type="Button" parent="Shop/ShopOptions/Weapons"]
 custom_minimum_size = Vector2(500, 100)
@@ -85,7 +87,7 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_tsop3")
 theme_override_font_sizes/font_size = 58
-text = "Duet:       $500"
+text = "Duet:       $300"
 alignment = 0
 
 [node name="ShotgunButton" type="Button" parent="Shop/ShopOptions/Weapons"]
@@ -103,7 +105,7 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_tsop3")
 theme_override_font_sizes/font_size = 58
-text = "Shotgun: $600"
+text = "Shotgun: $500"
 alignment = 0
 
 [node name="SniperButton" type="Button" parent="Shop/ShopOptions/Weapons"]
@@ -121,7 +123,7 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_tsop3")
 theme_override_font_sizes/font_size = 58
-text = "Sniper:    $1000"
+text = "Sniper:    $800"
 alignment = 0
 
 [node name="RocketButton" type="Button" parent="Shop/ShopOptions/Weapons"]
@@ -139,10 +141,11 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_tsop3")
 theme_override_font_sizes/font_size = 58
-text = "Rocket:   $1500"
+text = "Rocket:   $1000"
 alignment = 0
 
 [node name="Utility" type="CanvasLayer" parent="Shop/ShopOptions"]
+visible = false
 
 [node name="HealthButton" type="Button" parent="Shop/ShopOptions/Utility"]
 custom_minimum_size = Vector2(500, 100)
@@ -172,14 +175,52 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -504.0
-offset_top = -164.0
+offset_top = -304.0
 offset_right = -4.0
-offset_bottom = -64.0
+offset_bottom = -204.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_tsop3")
-theme_override_font_sizes/font_size = 58
-text = "Speed:     $200"
+theme_override_font_sizes/font_size = 40
+text = "Move Speed:      $200"
+alignment = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="BaseDamage" type="Button" parent="Shop/ShopOptions/Upgrades"]
+custom_minimum_size = Vector2(500, 100)
+anchors_preset = -1
+anchor_left = 1.012
+anchor_top = 4.1
+anchor_right = 1.012
+anchor_bottom = 4.1
+offset_left = -527.04
+offset_top = -3983.0
+offset_right = -27.0399
+offset_bottom = -3883.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_tsop3")
+theme_override_font_sizes/font_size = 40
+text = "Base Damage:    $500"
+alignment = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="BaseAtkSpd" type="Button" parent="Shop/ShopOptions/Upgrades"]
+custom_minimum_size = Vector2(500, 100)
+anchors_preset = -1
+anchor_left = 1.012
+anchor_top = 4.1
+anchor_right = 1.012
+anchor_bottom = 4.1
+offset_left = -529.04
+offset_top = -3870.0
+offset_right = -22.0399
+offset_bottom = -3770.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_tsop3")
+theme_override_font_sizes/font_size = 40
+text = "Base Attack spd:$1000"
 alignment = 0
 metadata/_edit_use_anchors_ = true
 
@@ -251,6 +292,7 @@ offset_bottom = 868.0
 text = "Load"
 
 [node name="ShopButton" type="Button" parent="Shop"]
+visible = false
 custom_minimum_size = Vector2(500, 100)
 anchors_preset = 6
 anchor_left = 1.0
@@ -277,6 +319,8 @@ text = "Shop"
 [connection signal="pressed" from="Shop/ShopOptions/Weapons/RocketButton" to="." method="_on_rocket_button_pressed"]
 [connection signal="pressed" from="Shop/ShopOptions/Utility/HealthButton" to="." method="_on_health_button_pressed"]
 [connection signal="pressed" from="Shop/ShopOptions/Upgrades/SpeedButton" to="." method="_on_speed_button_pressed"]
+[connection signal="pressed" from="Shop/ShopOptions/Upgrades/BaseDamage" to="." method="_on_base_damage_pressed"]
+[connection signal="pressed" from="Shop/ShopOptions/Upgrades/BaseAtkSpd" to="." method="_on_base_atk_spd_pressed"]
 [connection signal="pressed" from="Shop/ShopOptions/UpgradeButton" to="." method="_on_upgrade_button_pressed"]
 [connection signal="pressed" from="Shop/ShopOptions/UtilityButton" to="." method="_on_utility_button_pressed"]
 [connection signal="pressed" from="Shop/ShopOptions/WeaponButton" to="." method="_on_weapon_button_pressed"]

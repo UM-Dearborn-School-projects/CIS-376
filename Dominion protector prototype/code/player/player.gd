@@ -6,7 +6,7 @@ var savePosition : Vector2
 
 # player status variables
 var speed = 200
-var health = 10;
+var health = 20;
 var screen_size
 var money
 var option
@@ -24,19 +24,11 @@ signal update_inv
 
 # Initiates the player instance
 func _ready():
-	sword = true
-	pistol = true
-	smg = true
-	duet = true
-	shotgun = true
-	sniper= true
-	rocket = true
-	
-	option = 0;
+	reset()
 	
 	screen_size = get_viewport_rect().size
 	#position = get_viewport_rect().get_center()
-	money = 0
+	
 	stop()
 
 # updates every frame
@@ -50,19 +42,19 @@ func movement(delta):
 	var direction = Input.get_vector("move_left", "move_right", "move_up","move_down")
 	velocity = direction * speed
 	
-	# normalize player movement to prevent fast horizontal movement
+	# play animation
 	if velocity.length() > 0:
-		$AnimatedSprite2D.play()
+		$AnimatedSprite2D.play("run")
 	else:
-		$AnimatedSprite2D.stop()
+		$AnimatedSprite2D.play("idle")
 	
+	# normalize player movement to prevent fast horizontal movement
 	velocity = velocity.normalized() * speed
 	move_and_slide()
 	
 	# flip the animation based on the direction movement
 	$AnimatedSprite2D.flip_v = false
 	$AnimatedSprite2D.flip_h = velocity.x < 0
-	$AnimatedSprite2D.flip_v = velocity.y > 0
 	
 	# update the position value and prevent it from leaving the screen
 	# delta refers to the frame rate and thus standardizes movement across frame rates
@@ -84,7 +76,8 @@ func dead_signal():
 
 # enable functionality
 func start(position):
-	$DamageArea.set_health(10)
+	$DamageArea.set_health(health)
+	reset()
 	self.position = position
 	show()
 	$CanvasLayer.show()
@@ -98,6 +91,19 @@ func stop():
 	# disable the colision detection so that it will not triger more than once
 	$CollisionShape2D.set_deferred("disabled", true)
 	$DamageArea/CollisionShape2D.set_deferred("disabled", true)
+
+func reset():
+	sword = true
+	pistol = false
+	smg = false
+	duet = false
+	shotgun = false
+	sniper= false
+	rocket = false
+	
+	option = 0;
+	
+	money = 0
 
 # Display the money counter
 func update():

@@ -1,16 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://dcpqjirgtocs5"]
 
-[ext_resource type="Script" path="res://code/projectiles/sniper.gd" id="1_nt6wi"]
+[ext_resource type="Script" path="res://code/player/sniper.gd" id="1_nt6wi"]
 [ext_resource type="Texture2D" uid="uid://cb6xpg3e5b8dm" path="res://art/player/weapons/Flat Guns/gun5.png" id="2_4s52v"]
 [ext_resource type="AudioStream" uid="uid://bxtglim3k1fj4" path="res://art/sound/sniper.wav" id="3_qq2vy"]
 
 [node name="Sniper" type="Area2D"]
+scale = Vector2(0.75, 0.75)
 script = ExtResource("1_nt6wi")
 
 [node name="Pivot" type="Marker2D" parent="."]
 
 [node name="Weapon" type="Sprite2D" parent="Pivot"]
-position = Vector2(50, -2)
+position = Vector2(60, -2)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_4s52v")
 
@@ -19,6 +20,7 @@ position = Vector2(579.999, -160)
 scale = Vector2(23.1727, 20.8487)
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.6
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_qq2vy")

@@ -1,0 +1,2 @@
++ 4 directions added to Turret enemy.
++ Vertical Projectile for 1x1 Turret.

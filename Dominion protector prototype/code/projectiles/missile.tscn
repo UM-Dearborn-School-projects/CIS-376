@@ -29,8 +29,10 @@ radius = 3.86404
 height = 31.2163
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oj4ar"]
+radius = 20.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5a018"]
+radius = 20.0
 
 [sub_resource type="Animation" id="Animation_rwq0s"]
 length = 0.001
@@ -230,8 +232,9 @@ libraries = {
 autoplay = "RESET"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-6, 7)
 rotation = -1.5708
-scale = Vector2(3, 3)
+scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_1d0ep")
 animation = &"boom"
 

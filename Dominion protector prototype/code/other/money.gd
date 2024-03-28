@@ -4,7 +4,7 @@ var amount
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	amount = 50
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -14,9 +14,10 @@ func _process(delta):
 func get_value():
 	return amount
 
-func set_value(value):
-	amount = value
+func set_value(amount):
+	self.amount = amount
 
-
+# deletes the money after a certin time (disabled)
 func _on_timer_timeout():
-	queue_free()
+	#queue_free()
+	pass

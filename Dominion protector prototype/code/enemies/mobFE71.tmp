@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://lrr4xfvy4oy"]
+
+[ext_resource type="Script" path="res://code/enemies/mob.gd" id="1_mvh7p"]
+[ext_resource type="SpriteFrames" uid="uid://ce7hbnlv3jy4f" path="res://art/enemies/mele_enemy.tres" id="2_ubv6w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tl3f4"]
+radius = 17.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ga704"]
+radius = 19.0
+
+[node name="Mob" type="CharacterBody2D" groups=["cell", "mob"]]
+scale = Vector2(1.25, 1.25)
+script = ExtResource("1_mvh7p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+sprite_frames = ExtResource("2_ubv6w")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -7)
+shape = SubResource("CircleShape2D_tl3f4")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2, -7)
+shape = SubResource("CircleShape2D_ga704")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(250, 0)
+
+[node name="Timer" type="Timer" parent="RayCast2D"]
+wait_time = 0.5
+one_shot = true
+
+[node name="ShootingPoint" type="Marker2D" parent="."]
+position = Vector2(6.4, 2.4)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="RayCast2D/Timer" to="." method="_on_timer_timeout"]
