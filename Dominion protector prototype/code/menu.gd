@@ -35,7 +35,13 @@ func show_game_over():
 # start the game
 func _on_start_button_pressed():
 	$StartButton.hide()
+	$QuitButton.hide() # hides quit from showing when game starts
+	$TutorialButton.hide() # hides the tutorial button when games starts
 	start_game.emit()
 
 func _on_message_timer_timeout():
 	$Title.hide()
+
+
+func _on_quit_button_pressed():
+	get_tree().quit() # should quit the game when the button is pressed
