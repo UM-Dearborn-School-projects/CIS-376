@@ -50,19 +50,19 @@ func movement(delta):
 	var direction = Input.get_vector("move_left", "move_right", "move_up","move_down")
 	velocity = direction * speed
 	
-	# normalize player movement to prevent fast horizontal movement
+	# play animation
 	if velocity.length() > 0:
-		$AnimatedSprite2D.play()
+		$AnimatedSprite2D.play("run")
 	else:
-		$AnimatedSprite2D.stop()
+		$AnimatedSprite2D.play("idle")
 	
+	# normalize player movement to prevent fast horizontal movement
 	velocity = velocity.normalized() * speed
 	move_and_slide()
 	
 	# flip the animation based on the direction movement
 	$AnimatedSprite2D.flip_v = false
 	$AnimatedSprite2D.flip_h = velocity.x < 0
-	$AnimatedSprite2D.flip_v = velocity.y > 0
 	
 	# update the position value and prevent it from leaving the screen
 	# delta refers to the frame rate and thus standardizes movement across frame rates

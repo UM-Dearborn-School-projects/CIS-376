@@ -26,6 +26,15 @@ func _process(delta):
 	mouse_position = get_global_mouse_position()
 	look_at(mouse_position)
 	
+	var mouseLocFromPlayer = get_global_mouse_position() - self.position
+	
+	var angle = atan2(mouseLocFromPlayer.y, mouseLocFromPlayer.x)
+	
+	if mouseLocFromPlayer.x < -10:
+		scale.x = -1
+	elif mouseLocFromPlayer.x >= 10:
+		scale.x = 1
+	
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		attack(option)
 

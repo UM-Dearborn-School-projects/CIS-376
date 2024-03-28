@@ -5,12 +5,13 @@
 [ext_resource type="AudioStream" uid="uid://d0fr043le160u" path="res://art/sound/rocketShoot.wav" id="3_20f4p"]
 
 [node name="Rocket" type="Area2D"]
+scale = Vector2(0.7, 0.7)
 script = ExtResource("1_ohfgw")
 
 [node name="Pivot" type="Marker2D" parent="."]
 
 [node name="Weapon" type="Sprite2D" parent="Pivot"]
-position = Vector2(55, -2)
+position = Vector2(60, -2)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_o0ona")
 

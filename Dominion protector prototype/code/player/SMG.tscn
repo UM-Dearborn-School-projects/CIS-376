@@ -5,12 +5,13 @@
 [ext_resource type="AudioStream" uid="uid://ou355dy3q3hl" path="res://art/sound/smgShoot.wav" id="3_vcc3e"]
 
 [node name="Area2D" type="Area2D"]
+scale = Vector2(0.75, 0.75)
 script = ExtResource("1_ndkgn")
 
 [node name="Pivot" type="Marker2D" parent="."]
 
 [node name="Weapon" type="Sprite2D" parent="Pivot"]
-position = Vector2(36, 3)
+position = Vector2(50, 2.667)
 scale = Vector2(0.0431543, 0.0479645)
 texture = ExtResource("2_14twr")
 

@@ -5,12 +5,13 @@
 [ext_resource type="AudioStream" uid="uid://jlwkrpupt6w" path="res://art/sound/duetShoot.wav" id="3_8gn6y"]
 
 [node name="Duet" type="Area2D"]
+scale = Vector2(0.75, 0.75)
 script = ExtResource("1_8jyv5")
 
 [node name="Pivot" type="Marker2D" parent="."]
 
 [node name="Weapon" type="Sprite2D" parent="Pivot"]
-position = Vector2(34, 2)
+position = Vector2(50, 2)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("2_voho3")
 
