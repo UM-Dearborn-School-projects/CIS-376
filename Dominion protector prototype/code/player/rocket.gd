@@ -4,7 +4,7 @@ const MISSILE = preload("res://code/projectiles/missile.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_damage(4)
+	set_damage(6)
 	set_accuracy(.1)
 	set_range(900)
 	set_speed(700)

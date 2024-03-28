@@ -6,7 +6,7 @@ var savePosition : Vector2
 
 # player status variables
 var speed = 200
-var health = 10;
+var health = 20;
 var screen_size
 var money
 var option
@@ -24,19 +24,11 @@ signal update_inv
 
 # Initiates the player instance
 func _ready():
-	sword = true
-	pistol = true
-	smg = true
-	duet = true
-	shotgun = true
-	sniper= true
-	rocket = true
-	
-	option = 0;
+	reset()
 	
 	screen_size = get_viewport_rect().size
 	#position = get_viewport_rect().get_center()
-	money = 0
+	
 	stop()
 
 # updates every frame
@@ -84,7 +76,8 @@ func dead_signal():
 
 # enable functionality
 func start(position):
-	$DamageArea.set_health(10)
+	$DamageArea.set_health(health)
+	reset()
 	self.position = position
 	show()
 	$CanvasLayer.show()
@@ -98,6 +91,19 @@ func stop():
 	# disable the colision detection so that it will not triger more than once
 	$CollisionShape2D.set_deferred("disabled", true)
 	$DamageArea/CollisionShape2D.set_deferred("disabled", true)
+
+func reset():
+	sword = true
+	pistol = false
+	smg = false
+	duet = false
+	shotgun = false
+	sniper= false
+	rocket = false
+	
+	option = 0;
+	
+	money = 0
 
 # Display the money counter
 func update():

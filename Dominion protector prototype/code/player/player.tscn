@@ -82,7 +82,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"death",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -107,7 +107,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yn1d6"]
@@ -123,7 +123,8 @@ script = ExtResource("1_lcf1r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8lpgw")
-animation = &"idle"
+animation = &"run"
+frame_progress = 0.734768
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 15)
@@ -132,7 +133,7 @@ shape = SubResource("CapsuleShape2D_yn1d6")
 [node name="DamageArea" type="Area2D" parent="." groups=["player"]]
 script = ExtResource("7_nrxxt")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" groups=["player"]]
 position = Vector2(-1, 15)
 shape = SubResource("CapsuleShape2D_cv5qy")
 
@@ -159,15 +160,15 @@ unique_name_in_owner = true
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 66.0
+offset_left = 75.0
 offset_top = -130.0
-offset_right = 156.0
+offset_right = 287.0
 offset_bottom = -52.0
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_evhow")
 theme_override_font_sizes/font_size = 64
-text = "10/20"
+text = "20/20"
 
 [node name="WeaponSelection" parent="." node_paths=PackedStringArray("player") instance=ExtResource("9_j722a")]
 unique_name_in_owner = true

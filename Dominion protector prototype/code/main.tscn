@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cwi0icxvbohko"]
+[gd_scene load_steps=12 format=3 uid="uid://cwi0icxvbohko"]
 
 [ext_resource type="Script" path="res://code/main.gd" id="1_8y441"]
 [ext_resource type="PackedScene" uid="uid://bkdjrxkoinvcx" path="res://code/player/player.tscn" id="1_hxk3n"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://lrr4xfvy4oy" path="res://code/enemies/mob.tscn" id="7_aghbg"]
 [ext_resource type="PackedScene" uid="uid://dby34b7l7v5uj" path="res://code/player/inventory.tscn" id="8_1117e"]
 [ext_resource type="Script" path="res://code/other/saver_loader.gd" id="9_ookwg"]
+[ext_resource type="PackedScene" uid="uid://bvbacp5j2k24l" path="res://code/enemies/enemy_spawner.tscn" id="9_so36k"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_s4c63"]
 
@@ -64,10 +65,7 @@ player = NodePath("../Player")
 
 [node name="EnemyObjects" type="Node" parent="."]
 
-[node name="EnemySpawn" type="Marker2D" parent="EnemyObjects"]
-position = Vector2(944, 34)
-
-[node name="EnemyTimer" type="Timer" parent="EnemyObjects"]
+[node name="Enemyspawner" parent="EnemyObjects" instance=ExtResource("9_so36k")]
 
 [node name="SaverLoader" type="Node" parent="."]
 unique_name_in_owner = true
@@ -77,4 +75,3 @@ script = ExtResource("9_ookwg")
 [connection signal="dead" from="PlayerObjects/Player" to="." method="game_over"]
 [connection signal="update_inv" from="PlayerObjects/Player" to="PlayerObjects/Inventory" method="update"]
 [connection signal="dead" from="PlayerObjects/Base" to="." method="game_over"]
-[connection signal="timeout" from="EnemyObjects/EnemyTimer" to="." method="_on_enemy_timer_timeout"]

@@ -3,9 +3,13 @@ signal dead
 
 @export var player : CharacterBody2D
 @export var save : Node
+
+var damage = 3
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	hide()
+	set_damage()
+	stop()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -16,15 +20,27 @@ func start(position):
 	self.position = position
 	$DamageArea.set_health(100)
 	show()
+	$CanvasLayer.show()
 	$Turet.reset()
 	$CollisionShape2D.disabled = false
 
 # disable functionality
 func stop():
 	hide() 
+	$CanvasLayer.hide()
 	$Turet.disable()
 	# disable the colision detection so that it will not triger more than once
 	$CollisionShape2D.set_deferred("disabled", true)
+
+func add_damage():
+	damage += 3
+	set_damage()
+
+func set_damage():
+	$Turet.set_damage(damage)
+
+func add_speed():
+	$Turet.reduce_timer()
 
 # End game condition
 func _on_damage_area_dead():
