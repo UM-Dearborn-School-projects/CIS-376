@@ -1,12 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkj2v2cn4y301"]
+[gd_scene load_steps=9 format=3 uid="uid://bkj2v2cn4y301"]
 
 [ext_resource type="Script" path="res://code/player/WeaponSelection.gd" id="1_rbwgl"]
+[ext_resource type="PackedScene" uid="uid://dcpqjirgtocs5" path="res://code/player/sniper.tscn" id="2_bqaiq"]
 [ext_resource type="PackedScene" uid="uid://cvnkqddqewpos" path="res://code/player/sword.tscn" id="2_wb1kq"]
 [ext_resource type="PackedScene" uid="uid://4jqjtnbkl8r3" path="res://code/player/gun.tscn" id="3_kpev7"]
+[ext_resource type="PackedScene" uid="uid://d20lu4rg2xj5o" path="res://code/player/SMG.tscn" id="5_slmxn"]
+[ext_resource type="PackedScene" uid="uid://ddngfe5ur7hsi" path="res://code/player/duet.tscn" id="6_oya7c"]
+[ext_resource type="PackedScene" uid="uid://bxg3sgcwpckrs" path="res://code/player/shotgun.tscn" id="7_3ug0b"]
+[ext_resource type="PackedScene" uid="uid://cdgtg3dcdgot1" path="res://code/player/rocket.tscn" id="8_ecs8k"]
 
 [node name="WeaponSelection" type="Node2D"]
 script = ExtResource("1_rbwgl")
 
+[node name="Sniper" parent="." instance=ExtResource("2_bqaiq")]
+
 [node name="Sword" parent="." instance=ExtResource("2_wb1kq")]
 
 [node name="Gun" parent="." instance=ExtResource("3_kpev7")]
+
+[node name="SMG" parent="." instance=ExtResource("5_slmxn")]
+
+[node name="Duet" parent="." instance=ExtResource("6_oya7c")]
+
+[node name="Shotgun" parent="." instance=ExtResource("7_3ug0b")]
+
+[node name="Rocket" parent="." instance=ExtResource("8_ecs8k")]

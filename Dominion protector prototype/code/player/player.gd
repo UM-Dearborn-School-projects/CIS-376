@@ -1,14 +1,17 @@
 extends CharacterBody2D
 signal dead
 
+# Save location
 var savePosition : Vector2
 
+# player status variables
 var speed = 200
 var health = 10;
 var screen_size
 var money
 var option
 
+# Weapon variables
 var sword
 var pistol
 var smg
@@ -19,14 +22,15 @@ var rocket
 
 signal update_inv
 
+# Initiates the player instance
 func _ready():
 	sword = true
-	pistol = false
-	smg = false
-	duet = false
-	shotgun = false
-	sniper= false
-	rocket = false
+	pistol = true
+	smg = true
+	duet = true
+	shotgun = true
+	sniper= true
+	rocket = true
 	
 	option = 0;
 	
@@ -35,10 +39,12 @@ func _ready():
 	money = 0
 	stop()
 
+# updates every frame
 func _physics_process(delta):
 	movement(delta)
 	update()
 
+# Allowes the player to move given wasd keys
 func movement(delta):
 	# check for player input
 	var direction = Input.get_vector("move_left", "move_right", "move_up","move_down")
@@ -63,12 +69,17 @@ func movement(delta):
 	position += velocity * delta 
 	position = position.clamp(Vector2.ZERO, screen_size)
 
+# allows the player to collect money
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("coin"):
+		$AudioStreamPlayer2D.play()
 		money += area.get_value()
 		area.queue_free()
 
+# End game condition
 func dead_signal():
+	money = 0
+	update()
 	dead.emit()
 
 # enable functionality
@@ -88,22 +99,28 @@ func stop():
 	$CollisionShape2D.set_deferred("disabled", true)
 	$DamageArea/CollisionShape2D.set_deferred("disabled", true)
 
+# Display the money counter
 func update():
 	$CanvasLayer/MoneyCounter.text = str(money)
 
+# Reduce coin count given a value
 func reduce_money(amount):
 	money -= amount
 	update()
 
+# Set the player health
 func change_health(amount):
 	health = amount
 
+# Add health given the value
 func add_health(amount):
 	$DamageArea.add_health(amount)
 
+# Set the player health in damage area
 func set_health(amount):
 	$DamageArea.set_health(amount)
 
+# Add speed to the player movement
 func add_speed(amount):
 	speed += amount
 

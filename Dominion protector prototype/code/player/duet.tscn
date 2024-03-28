@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddngfe5ur7hsi"]
+
+[ext_resource type="Script" path="res://code/player/duet.gd" id="1_8jyv5"]
+[ext_resource type="Texture2D" uid="uid://fwi26arpcu3x" path="res://art/player/weapons/Flat Guns/gun3.png" id="2_voho3"]
+[ext_resource type="AudioStream" uid="uid://jlwkrpupt6w" path="res://art/sound/duetShoot.wav" id="3_8gn6y"]
+
+[node name="Duet" type="Area2D"]
+script = ExtResource("1_8jyv5")
+
+[node name="Pivot" type="Marker2D" parent="."]
+
+[node name="Weapon" type="Sprite2D" parent="Pivot"]
+position = Vector2(34, 2)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("2_voho3")
+
+[node name="ShootingPoint1" type="Marker2D" parent="Pivot/Weapon"]
+position = Vector2(400, -150)
+scale = Vector2(463.453, 416.975)
+
+[node name="ShootingPoint2" type="Marker2D" parent="Pivot/Weapon"]
+position = Vector2(400, -25)
+scale = Vector2(463.453, 416.975)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_8gn6y")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout_duet"]

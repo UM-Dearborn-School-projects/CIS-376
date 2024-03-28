@@ -1,10 +1,17 @@
 extends TextureRect
 
+"""
+This class controls the visuals of the player inentory and the player selction of inventory
+items through button presses and clicking of the icons.
+"""
+
 @export var player : CharacterBody2D
+var selection : Node2D
 var option
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	selection = get_node("/root/Main/PlayerObjects/Player/WeaponSelection")
 	option = -1
 	update()
 
@@ -59,27 +66,34 @@ func set_option(option):
 func _on_sword_button_pressed():
 	option = 1
 	player.set_option(option)
+	selection.set_option(option)
 
 func _on_pistol_button_pressed():
 	option = 2
 	player.set_option(option)
+	selection.set_option(option)
 
 func _on_smg_button_pressed():
 	option = 3
 	player.set_option(option)
+	selection.set_option(option)
 
 func _on_duet_button_pressed():
 	option = 4
 	player.set_option(option)
+	selection.set_option(option)
 
 func _on_shotgun_button_pressed():
 	option = 5
 	player.set_option(option)
+	selection.set_option(option)
 
 func _on_sniper_button_pressed():
 	option = 6
 	player.set_option(option)
+	selection.set_option(option)
 
 func _on_rocket_button_pressed():
 	option = 7
 	player.set_option(option)
+	selection.set_option(option)

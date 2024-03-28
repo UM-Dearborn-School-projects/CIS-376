@@ -6,6 +6,8 @@ var mob_array = []
 var clean_array = []
 var target_enemy
 
+const BULLET = preload("res://code/projectiles/bullet.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	can_shoot = false
@@ -15,6 +17,7 @@ func _physics_process(delta):
 	detect_mobs()
 	target()
 
+# Find the closest enemy
 func target():
 	if(target_enemy != null):
 		look_at(target_enemy.global_position)
@@ -26,25 +29,28 @@ func target():
 # shoot a bullet
 func shoot():
 	$Pivot/AnimatedSprite2D.animation = "attack"
-	const BULLET = preload("res://code/projectiles/bullet.tscn")
 	var new_bullet = BULLET.instantiate()
 	new_bullet.set_damage(damage)
 	new_bullet.global_position = %ShootingPoint.global_position
 	new_bullet.global_rotation = %ShootingPoint.global_rotation
 	%ShootingPoint.add_child(new_bullet)
 
+# Start timers for reload
 func start_timer():
 	$ShootingTimer.start()
 	$AnimationTimer.start()
 
+# Reset the functionality
 func reset():
 	can_shoot = false
 	$ShootingTimer.start()
 
+# Disable the functionality
 func disable():
 	can_shoot = false
 	$ShootingTimer.stop()
 
+# Allowed to shoort after reload
 func _on_timer_timeout():
 	can_shoot = true
 

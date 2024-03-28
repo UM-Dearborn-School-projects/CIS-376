@@ -1,0 +1,242 @@
+[gd_scene load_steps=31 format=3 uid="uid://c36hmt6pfedg2"]
+
+[ext_resource type="Script" path="res://code/projectiles/Missile.gd" id="1_3t17v"]
+[ext_resource type="Texture2D" uid="uid://b0pcglh3xvy1n" path="res://art/projectiles/missile.png" id="2_u5cpp"]
+[ext_resource type="Texture2D" uid="uid://dena4dfdn2yy8" path="res://art/projectiles/Explosion2/0001.png" id="3_pmtgk"]
+[ext_resource type="Texture2D" uid="uid://ctsdsjbd8odjx" path="res://art/projectiles/Explosion2/0002.png" id="4_nm5ar"]
+[ext_resource type="Texture2D" uid="uid://cginhp61dnn78" path="res://art/projectiles/Explosion2/0003.png" id="5_bnlv1"]
+[ext_resource type="Texture2D" uid="uid://by71m2eve614k" path="res://art/projectiles/Explosion2/0004.png" id="6_swo5h"]
+[ext_resource type="Texture2D" uid="uid://0ixcbv5k34vb" path="res://art/projectiles/Explosion2/0005.png" id="7_dumao"]
+[ext_resource type="Texture2D" uid="uid://x4fodbfwqt1y" path="res://art/projectiles/Explosion2/0006.png" id="8_66pgt"]
+[ext_resource type="Texture2D" uid="uid://tso8micqea3v" path="res://art/projectiles/Explosion2/0007.png" id="9_oflhs"]
+[ext_resource type="Texture2D" uid="uid://dpa6i3201r48f" path="res://art/projectiles/Explosion2/0008.png" id="10_py5xy"]
+[ext_resource type="Texture2D" uid="uid://lnjut4kwaild" path="res://art/projectiles/Explosion2/0009.png" id="11_xfkgs"]
+[ext_resource type="Texture2D" uid="uid://bhflthbppsl4h" path="res://art/projectiles/Explosion2/0010.png" id="12_0587n"]
+[ext_resource type="Texture2D" uid="uid://8tq6sfsfgcee" path="res://art/projectiles/Explosion2/0011.png" id="13_ccpv2"]
+[ext_resource type="Texture2D" uid="uid://bvbyuy23ef718" path="res://art/projectiles/Explosion2/0012.png" id="14_qdrnk"]
+[ext_resource type="Texture2D" uid="uid://diajpnsjpjvcr" path="res://art/projectiles/Explosion2/0013.png" id="15_8bu2g"]
+[ext_resource type="Texture2D" uid="uid://d0ht543ib7xqo" path="res://art/projectiles/Explosion2/0014.png" id="16_d74j6"]
+[ext_resource type="Texture2D" uid="uid://74ytjwukyy3f" path="res://art/projectiles/Explosion2/0015.png" id="17_yyo1s"]
+[ext_resource type="Texture2D" uid="uid://c881xfllbeatr" path="res://art/projectiles/Explosion2/0016.png" id="18_ggx30"]
+[ext_resource type="Texture2D" uid="uid://2xlrjkq01ibw" path="res://art/projectiles/Explosion2/0017.png" id="19_px008"]
+[ext_resource type="Texture2D" uid="uid://be64j5skq53rc" path="res://art/projectiles/Explosion2/0018.png" id="20_4gk4o"]
+[ext_resource type="Texture2D" uid="uid://bpmue1geeb1sq" path="res://art/projectiles/Explosion2/0019.png" id="21_r4050"]
+[ext_resource type="Texture2D" uid="uid://c3vl7wm2dws8x" path="res://art/projectiles/Explosion2/0020.png" id="22_kloxf"]
+[ext_resource type="AudioStream" uid="uid://daskpon5rv5gf" path="res://art/sound/explosion.wav" id="23_5vclf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pxtar"]
+radius = 3.86404
+height = 31.2163
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oj4ar"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5a018"]
+
+[sub_resource type="Animation" id="Animation_rwq0s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MissilePic:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_u5cpp")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MissilePic:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Explosion/ExplosionStart:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Explosion/ExplosionEnd:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_6w7ht"]
+resource_name = "boom"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MissilePic:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Explosion/ExplosionStart:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Explosion/ExplosionEnd:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r4cmq"]
+_data = {
+"RESET": SubResource("Animation_rwq0s"),
+"boom": SubResource("Animation_6w7ht")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1d0ep"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pmtgk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nm5ar")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bnlv1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_swo5h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dumao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_66pgt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_oflhs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_py5xy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_xfkgs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_0587n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ccpv2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_qdrnk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_8bu2g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_d74j6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_yyo1s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ggx30")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_px008")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_4gk4o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_r4050")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_kloxf")
+}],
+"loop": true,
+"name": &"boom",
+"speed": 30.0
+}]
+
+[node name="Missile" type="Area2D"]
+top_level = true
+script = ExtResource("1_3t17v")
+
+[node name="MissilePic" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.045, 0.045)
+texture = ExtResource("2_u5cpp")
+
+[node name="Projectile" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+scale = Vector2(1.03519, 0.961037)
+shape = SubResource("CapsuleShape2D_pxtar")
+
+[node name="Explosion" type="Area2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.028205, 0.028205)
+
+[node name="ExplosionStart" type="CollisionShape2D" parent="Explosion"]
+scale = Vector2(100, 100)
+shape = SubResource("CircleShape2D_oj4ar")
+
+[node name="ExplosionEnd" type="CollisionShape2D" parent="Explosion"]
+scale = Vector2(250, 250)
+shape = SubResource("CircleShape2D_5a018")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_r4cmq")
+}
+autoplay = "RESET"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = -1.5708
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1d0ep")
+animation = &"boom"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("23_5vclf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered_missile"]
+[connection signal="body_entered" from="Explosion" to="." method="_on_Explosion_body_entered"]

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdgtg3dcdgot1"]
+
+[ext_resource type="Script" path="res://code/player/rocket.gd" id="1_ohfgw"]
+[ext_resource type="Texture2D" uid="uid://c6askk5jntsnc" path="res://art/player/weapons/Flat Guns/gun6.png" id="2_o0ona"]
+[ext_resource type="AudioStream" uid="uid://d0fr043le160u" path="res://art/sound/rocketShoot.wav" id="3_20f4p"]
+
+[node name="Rocket" type="Area2D"]
+script = ExtResource("1_ohfgw")
+
+[node name="Pivot" type="Marker2D" parent="."]
+
+[node name="Weapon" type="Sprite2D" parent="Pivot"]
+position = Vector2(55, -2)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_o0ona")
+
+[node name="ShootingPoint" type="Marker2D" parent="Pivot/Weapon"]
+position = Vector2(539.999, -0.00012207)
+scale = Vector2(23.1727, 20.8487)
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_20f4p")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout_rocket"]

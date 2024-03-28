@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvnkqddqewpos"]
+[gd_scene load_steps=8 format=3 uid="uid://cvnkqddqewpos"]
 
 [ext_resource type="Script" path="res://code/player/Sword.gd" id="1_0040x"]
 [ext_resource type="Texture2D" uid="uid://bcvmkvl86jbuq" path="res://art/player/weapons/sword.png" id="2_mhk65"]
+[ext_resource type="AudioStream" uid="uid://bjvvipfv2nmvy" path="res://art/sound/sword.wav" id="3_f8muf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_20act"]
 radius = 1.40883
@@ -89,6 +90,7 @@ offset = Vector2(-20.2701, 16.4329)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.6
+one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -97,6 +99,9 @@ libraries = {
 
 [node name="AnimationTimer" type="Timer" parent="."]
 wait_time = 0.3
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_f8muf")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

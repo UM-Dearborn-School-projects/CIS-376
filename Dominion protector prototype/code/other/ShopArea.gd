@@ -1,13 +1,23 @@
 extends Area2D
 
-var save : Node
+"""
+This class gives functionality to the shop buttons and allows them to show 
+when a player colides with a colision shape. 
+"""
 
+# Save script
+var save : Node
+# player instance
 var player : CharacterBody2D
 var state
 
 #cost of items can be adjusted here
-var pistol_cost = 100
-
+var pistol_cost = 10
+var smg_cost = 30
+var duet_cost = 40
+var shotgun_cost = 60
+var sniper_cost = 80
+var rocket_cost = 100
 
 var health_cost = 50
 var health_amount = 5
@@ -62,32 +72,32 @@ func _on_area_exited(area):
 		hide_all()
 		state = -1
 
+# Reveal top level of the shop branch
 func _on_shop_button_pressed():
 	state = 1
 	$Shop/ShopButton.hide()
 	$Shop/BackButton.show()
 	$Shop/ShopOptions.show()
-	
 
-
+# Reveal the upgrades shop brach
 func _on_upgrade_button_pressed():
 	state = 2
 	$Shop/ShopOptions.hide()
 	$Shop/ShopOptions/Upgrades.show()
 
-
+# Reveal the utility shop brach
 func _on_utility_button_pressed():
 	state = 2
 	$Shop/ShopOptions.hide()
 	$Shop/ShopOptions/Utility.show()
 
-
+# Reveal the weapon shop brach
 func _on_weapon_button_pressed():
 	state = 2
 	$Shop/ShopOptions.hide()
 	$Shop/ShopOptions/Weapons.show()
 
-
+# Go back one branch
 func _on_back_button_pressed():
 	hide_all()
 	
@@ -105,53 +115,66 @@ func _on_back_button_pressed():
 		$Shop/ShopButton.hide()
 		$Shop/ShopOptions.show()
 
-
+# purchase the pistol
 func _on_pistol_button_pressed():
 	if(has_money(pistol_cost)):
 		reduce_money(pistol_cost)
 		$Shop/ShopOptions/Weapons/PistolButton.disabled = true
 		player.set_pistol(true)
 
-
+# purchase the smg
 func _on_smg_button_pressed():
-	pass # Replace with function body.
+	if(has_money(smg_cost)):
+		reduce_money(smg_cost)
+		$Shop/ShopOptions/Weapons/SMGButton.disabled = true
+		player.set_smg(true)
 
-
+# purchase the duet
 func _on_duet_button_pressed():
-	pass # Replace with function body.
+	if(has_money(duet_cost)):
+		reduce_money(duet_cost)
+		$Shop/ShopOptions/Weapons/DuetButton.disabled = true
+		player.set_duet(true)
 
-
+# purchase the shotgun
 func _on_shotgun_button_pressed():
-	pass # Replace with function body.
+	if(has_money(shotgun_cost)):
+		reduce_money(shotgun_cost)
+		$Shop/ShopOptions/Weapons/ShotgunButton.disabled = true
+		player.set_shotgun(true)
 
-
+# purchase the sniper
 func _on_sniper_button_pressed():
-	pass # Replace with function body.
+	if(has_money(sniper_cost)):
+		reduce_money(sniper_cost)
+		$Shop/ShopOptions/Weapons/SniperButton.disabled = true
+		player.set_sniper(true)
 
-
+# purchase the rocket
 func _on_rocket_button_pressed():
-	pass # Replace with function body.
+	if(has_money(rocket_cost)):
+		reduce_money(rocket_cost)
+		$Shop/ShopOptions/Weapons/RocketButton.disabled = true
+		player.set_rocket(true)
 
-
+# purchase health
 func _on_health_button_pressed():
 	if(has_money(health_cost)):
 		reduce_money(health_cost)
 		player.add_health(health_amount)
 
-
+# purchase speed
 func _on_speed_button_pressed():
 	if(has_money(speed_cost)):
 		reduce_money(speed_cost)
 		player.add_speed(speed_amount)
-		
 
-
-
+# Load the game
 func _on_load_button_pressed():
 	print("Load game")
 	save.load_game() 
 
-
+# Save the game
 func _on_save_button_pressed():
 	print("Save game")
 	save.save_game()
