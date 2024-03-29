@@ -25,10 +25,7 @@ signal update_inv
 # Initiates the player instance
 func _ready():
 	reset()
-	
 	screen_size = get_viewport_rect().size
-	#position = get_viewport_rect().get_center()
-	
 	stop()
 
 # updates every frame

@@ -19,6 +19,7 @@ position = Vector2(25, 540)
 position = Vector2(950, 1055)
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
 one_shot = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
