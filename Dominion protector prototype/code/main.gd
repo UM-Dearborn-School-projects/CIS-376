@@ -7,6 +7,8 @@ This class manages the game state and determines when and how game objects are s
 @onready var _saver_loader:SaverLoader = %SaverLoader
 @export var mob_scene: PackedScene
 
+var isWin
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$PlayerObjects/Inventory.hide()
@@ -25,12 +27,12 @@ func new_game():
 	$Menu.show_message("Get Ready")
 	await get_tree().create_timer(2.1).timeout
 	$PlayerObjects/Inventory.show()
-	#$EnemyObjects/EnemyTimer.start()
 	$PlayerObjects/Player.start($PlayerObjects/Player/PlayerStartPosition.position)
 	$PlayerObjects/Base.start($PlayerObjects/Base/BaseStartPosition.position)
 	$EnemyObjects/Enemyspawner.start()
 	$GameObjects/StartTimer.start()
 	$EnemyObjects/Enemyspawner.set_allowed(true)
+	isWin = false
 
 # the game over or loss condition, This stops the game and sets the main menu
 func game_over():
@@ -40,10 +42,24 @@ func game_over():
 	
 	$PlayerObjects/Inventory.hide()
 	$GameObjects/Music.stop()
+	$EnemyObjects/Enemyspawner.stop()
+	
+	if (isWin):
+		win()
+	else :
+		loss()
+	
+	stop_processes()
+
+func win():
+	$Menu.show_game_won()
+
+func loss():
 	$GameObjects/GameOverSound.play() 
 	$Menu.show_game_over()
-	stop_processes()
-	$EnemyObjects/Enemyspawner.set_allowed(false)
+
+func setWin():
+	isWin = true
 
 # disables functionality of objects within the game after game_over()
 func stop_processes():

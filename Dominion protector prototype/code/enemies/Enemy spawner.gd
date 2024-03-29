@@ -41,9 +41,11 @@ func set_allowed(allowed):
 	
 	self.allowed = allowed
 
+# start by showing the waves
 func start():
 	$CanvasLayer/WaveCounter.show()
 
+# stop and reset this class
 func stop():
 	$CanvasLayer/WaveCounter.hide()
 	mele = preload("res://code/enemies/mob.tscn")
@@ -55,15 +57,24 @@ func stop():
 
 # wave counter for number of enemies
 func wave():
-	$CanvasLayer/WaveCounter.text = "Wave #" + str(counter)
+	if counter <= 10:
+		$CanvasLayer/WaveCounter.text = "Wave #" + str(counter)
+	else :
+		# win condition
+		var main = get_node("/root/Main")
+		main.setWin()
+		main.game_over()
+	
 	match  counter:
 		1:
+			$Timer.wait_time = 1.0
 			mele_num = 4
 			$Timer.start()
 		2:
 			mele_num = 6
 			$Timer.start()
 		3:
+			$Timer.wait_time = 0.5
 			mele_num = 8
 			$Timer.start()
 		4:
@@ -73,6 +84,7 @@ func wave():
 			mele_num = 15
 			$Timer.start()
 		6:
+			$Timer.wait_time = 0.3
 			mele_num = 18
 			$Timer.start()
 		7:
@@ -85,8 +97,12 @@ func wave():
 			mele_num = 27
 			$Timer.start()
 		10:
+			$Timer.wait_time = 0.2
 			mele_num = 32
 			$Timer.start()
+		_:
+			## defult case
+			pass
 
 # pick a spawn location
 func spawn_area():
