@@ -25,8 +25,6 @@ signal update_inv
 # Initiates the player instance
 func _ready():
 	reset()
-	
-	screen_size = get_viewport_rect().size
 	#position = get_viewport_rect().get_center()
 	
 	stop()
@@ -58,8 +56,8 @@ func movement(delta):
 	
 	# update the position value and prevent it from leaving the screen
 	# delta refers to the frame rate and thus standardizes movement across frame rates
-	position += velocity * delta 
-	position = position.clamp(Vector2.ZERO, screen_size)
+	#position += velocity * delta 
+	position = position.clamp(Vector2.ZERO, get_viewport_rect().size)
 
 # allows the player to collect money
 func _on_area_2d_area_entered(area):
