@@ -55,8 +55,8 @@ func movement(delta):
 	
 	# update the position value and prevent it from leaving the screen
 	# delta refers to the frame rate and thus standardizes movement across frame rates
-	position += velocity * delta 
-	position = position.clamp(Vector2.ZERO, screen_size)
+	#position += velocity * delta 
+	position = position.clamp(Vector2.ZERO, get_viewport_rect().size)
 
 # allows the player to collect money
 func _on_area_2d_area_entered(area):
