@@ -20,11 +20,22 @@ func show_message(text):
 	$Title.show()
 	$MessageTimer.start()
 
+# displayes the game win message
+func show_game_won():
+	show_message("You Won!")
+	# Wait until the MessageTimer has counted down.
+	await $MessageTimer.timeout
+	title()
+
 # displayes the game over message and then returns to menu after a short time
 func show_game_over():
 	show_message("Game Over")
 	# Wait until the MessageTimer has counted down.
 	await $MessageTimer.timeout
+	title()
+	
+
+func title():
 	# change the message
 	$Title.text = "Dominion Protector"
 	$Title.show()

@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvbacp5j2k24l"]
+
+[ext_resource type="Script" path="res://code/enemies/Enemy spawner.gd" id="1_gpkb0"]
+[ext_resource type="FontFile" uid="uid://c34yck4u33u8a" path="res://fonts/Xolonium-Regular.ttf" id="2_lu0fb"]
+
+[node name="Enemy spawner" type="Node2D"]
+script = ExtResource("1_gpkb0")
+
+[node name="Right" type="Marker2D" parent="."]
+position = Vector2(1895, 544)
+
+[node name="Up" type="Marker2D" parent="."]
+position = Vector2(950, 25)
+
+[node name="Left" type="Marker2D" parent="."]
+position = Vector2(25, 540)
+
+[node name="Down" type="Marker2D" parent="."]
+position = Vector2(950, 1055)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(0, -900)
+transform = Transform2D(1, 0, 0, 1, 0, -900)
+
+[node name="WaveCounter" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 75.0
+offset_top = -130.0
+offset_right = 287.0
+offset_bottom = -52.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.784314, 0.784314, 0, 1)
+theme_override_fonts/font = ExtResource("2_lu0fb")
+theme_override_font_sizes/font_size = 64
+text = "Wave #1"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

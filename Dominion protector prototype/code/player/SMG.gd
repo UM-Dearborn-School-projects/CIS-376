@@ -3,7 +3,7 @@ extends Gun
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_damage(1)
-	set_accuracy(.4)
+	set_accuracy(.3)
 	set_range(700)
 	set_speed(700)
 

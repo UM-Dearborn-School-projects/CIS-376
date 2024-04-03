@@ -7,11 +7,11 @@ Attach this class to a Area2D object.
 """
 
 # The integer value of the health amount
-var health
+var health = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	update()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -20,13 +20,19 @@ func _process(delta):
 # Increases the health by a given value
 func add_health(health):
 	self.health += health
+	update()
 
 # Set the health to a specific value
 func set_health(health):
 	self.health = health
+	update()
 
 # Decrement the health by a given amount
 func take_damage(damage):
 	health -= damage
+	update()
 	if(health <= 0):
 		dead.emit()
+
+func update():
+	%BaseHealth.text = str(health) + "/100"

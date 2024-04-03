@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://vxub6yy75ewv"]
+
+[ext_resource type="Script" path="res://code/enemies/Laser.gd" id="1_843cg"]
+[ext_resource type="Texture2D" uid="uid://ct3d1qx175jcn" path="res://art/Tech Dungeon Roguelite - Asset Pack (v5)/Projectiles/projectiles x3.png" id="2_gt1jw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_56rpq"]
+size = Vector2(38, 9)
+
+[sub_resource type="Animation" id="Animation_ohouu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_8nlcg"]
+resource_name = "attack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1bqpi"]
+_data = {
+"RESET": SubResource("Animation_ohouu"),
+"attack": SubResource("Animation_8nlcg")
+}
+
+[node name="Laser" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_843cg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(31, -1)
+shape = SubResource("RectangleShape2D_56rpq")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+position = Vector2(16, -6.5)
+scale = Vector2(1.37188, 1.07413)
+texture = ExtResource("2_gt1jw")
+hframes = 4
+vframes = 10
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1bqpi")
+}
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AnimationTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="AnimationTimer" to="." method="_on_animation_timer_timeout"]

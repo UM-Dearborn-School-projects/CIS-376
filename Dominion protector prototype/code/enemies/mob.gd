@@ -1,61 +1,126 @@
 extends CharacterBody2D
 class_name Mob
 
+const BULLET = preload("res://code/projectiles/enemy_bullet.tscn")
+
 var health
 var speed
 var damage
 var player
+var base
 var main
+var accuracy
+var can_shoot
 static var count = 0
-var curent_count
+var current_count
+var money_value = 25
+
+var enter
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	count += 1
-	curent_count = count
-	player = get_node("/root/Main/PlayerObjects/Player")
-	main = get_node("/root/Main")
-	speed = 200
-	health = 4
-	damage = 2
-		# create an animation type array and chose one randomly
-	var mob_types = $AnimatedSprite2D.sprite_frames.get_animation_names()
-	# randi() % n selects a random integer between 0 and n-1
-	$AnimatedSprite2D.play(mob_types[randi() % mob_types.size()])
-
-func _physics_process(delta):
-	var direction = global_position.direction_to(player.global_position)
-	velocity = direction * speed
-	move_and_slide()
+	$Laser.hide()
+	$AnimatedSprite2D.play("Spawn")
+	await get_tree().create_timer(.5).timeout
+	$AnimatedSprite2D.play("idle")
+	await get_tree().create_timer(.25).timeout
 	
-	#var collision := move_and_collide(direction * delta)
-	#if collision != null:
-		#var body := collision.get_collider()
-		#if (body.has_method("take_damage")):
-			#body.take_damage(damage)
-			#queue_free()
+	
+	enter = true
+	
+	count += 1
+	current_count = count
+	player = get_node("/root/Main/PlayerObjects/Player")
+	base = get_node("/root/Main/PlayerObjects/Base")
+	main = get_node("/root/Main")
+	speed = 50
+	health = 6
+	damage = 2
 
+# the mob will attack when it is at close range and will walk twards either the base or player
+func _physics_process(delta):
+	
+	if not enter:
+		return
+	
+	targeting(delta)
+	
+	var distance_to_player = position.distance_to(player.position)
+	var distance_to_base = position.distance_to(base.position)
+	
+	if distance_to_player < 75.0:
+		attack(player)
+	elif distance_to_base < 100.0:
+		attack(base)
+	else:
+		# normalize enemy movement to prevent fast horizontal movement
+		velocity = velocity.normalized() * speed
+		move_and_slide()
+		
+		if velocity.length() > 0:
+			$AnimatedSprite2D.play("movement")
+		else:
+			$AnimatedSprite2D.play("idle")
+		
+		# flip the animation based on the direction movement
+		$AnimatedSprite2D.flip_v = false
+		$AnimatedSprite2D.flip_h = velocity.x < 0
+		
+		move_and_slide()
+
+# move to the base unless it is close to the player
+func targeting(delta):
+	if position.distance_to(player.global_position) < 350:
+		var direction = global_position.direction_to(player.global_position)
+		velocity = direction * speed
+	else:
+		var direction = global_position.direction_to(base.global_position)
+		velocity = direction * speed
+
+# laser attack at close range (between 50-100 units)
+func attack(node):
+	$Laser.show()
+	$Laser.attack(node)
+	$AnimatedSprite2D.play("attack")
+	await get_tree().create_timer(2).timeout
+
+# get the current id number for this mob
+func get_count():
+	return current_count
+
+# damage dealt
 func enemy_take_damage(damage):
+	
+	if damage == null or health == null:
+		return
+	
 	health -= damage
 	if(health <= 0):
+		$AnimatedSprite2D.play("Death")
+		enter = false
+		await get_tree().create_timer(.5).timeout
+		
 		#enemy drops money on death
 		const DROP = preload("res://code/other/money.tscn")
 		var new_drop = DROP.instantiate()
+		new_drop.set_value(money_value)
 		new_drop.global_position = %Marker2D.global_position
 		self.main.add_child(new_drop)
 		queue_free()
 
-func _on_visible_on_screen_notifier_2d_screen_exited():
-	queue_free()
+# delete the enemy if they leave the view (disabled)
+#func _on_visible_on_screen_notifier_2d_screen_exited():
+	#queue_free()
 
-func get_count():
-	return curent_count
-
+# damage base or player by walkinginto them (disabled)
 func _on_area_2d_area_entered(area):
-	if area.is_in_group("player"):
-		area.take_damage(damage)
-		await get_tree().create_timer(1).timeout
-	elif area.is_in_group("base"):
-		var name = area.get_name()  
-		
-		queue_free()
+	#if area.is_in_group("player"):
+		#area.take_damage(damage)
+		#await get_tree().create_timer(1).timeout
+	
+	#if area.is_in_group("base"):
+		#area.take_damage(damage)
+		#
+		#queue_free()
+	
+	pass
