@@ -13,6 +13,18 @@ func save_game():
 	saved_game.player_position = player.global_position # saving players position
 	saved_game.player_speed = player.speed # Saving players current speed
 	
+	# section for saving gun information
+	# current issue as of April 2nd, 944 pm, when loading back sprite shows that I still have a pistol even though I don't
+	saved_game.player_sword = player.sword
+	saved_game.player_pistol = player.pistol
+	saved_game.player_smg = player.smg
+	saved_game.player_duet = player.duet
+	saved_game.player_shotgun = player.shotgun
+	saved_game.player_sniper = player.sniper 
+	saved_game.player_rocket = player.rocket
+	
+
+	
 	# needed for saving enemy positions.
 	for cell in get_tree().get_nodes_in_group("cell"):
 		saved_game.cell_positions.append(cell.global_position)
@@ -28,6 +40,16 @@ func load_game():
 	player.set_health(saved_game.player_health) # setting the players health to what was saved in the file
 	player.global_position = saved_game.player_position
 	player.speed = saved_game.player_speed
+	
+	# Loading weapon values from file
+	player.sword = saved_game.player_sword
+	player.pistol = saved_game.player_pistol
+	player.smg = saved_game.player_smg
+	player.duet = saved_game.player_duet
+	player.shotgun = saved_game.player_shotgun
+	player.sniper = saved_game.player_sniper
+	player.rocket = saved_game.player_rocket
+
 	
 	for cell in get_tree().get_nodes_in_group("cell"):
 		cell.get_parent().remove_child(cell)
