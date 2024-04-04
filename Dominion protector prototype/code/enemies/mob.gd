@@ -2,8 +2,6 @@ extends CharacterBody2D
 
 class_name Mob
 
-const BULLET = preload("res://code/projectiles/enemy_bullet.tscn")
-
 var health
 var speed
 var damage
@@ -58,7 +56,6 @@ func _physics_process(delta):
 	else:
 		# normalize enemy movement to prevent fast horizontal movement
 		velocity = velocity.normalized() * speed
-		move_and_slide()
 		
 		if velocity.length() > 0:
 			$AnimatedSprite2D.play("Movement")

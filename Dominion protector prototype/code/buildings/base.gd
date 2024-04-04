@@ -6,6 +6,8 @@ signal dead
 
 var damage = 3
 
+var id = 200
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_damage()
@@ -53,3 +55,6 @@ func get_player():
 # Returns an instance of the save script
 func get_save():
 	return save
+
+func get_count():
+	return id

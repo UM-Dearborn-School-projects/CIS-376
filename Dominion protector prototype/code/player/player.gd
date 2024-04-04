@@ -20,6 +20,8 @@ var shotgun
 var sniper
 var rocket
 
+var id = 100
+
 signal update_inv
 
 # Initiates the player instance
@@ -138,6 +140,9 @@ func get_money():
 
 func get_option():
 	return option
+
+func get_count():
+	return id
 
 func set_option(option):
 	self.option = option

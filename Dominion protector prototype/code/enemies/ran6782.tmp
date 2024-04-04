@@ -201,11 +201,11 @@ shape = SubResource("CapsuleShape2D_gvf5e")
 position = Vector2(2, -11)
 shape = SubResource("CapsuleShape2D_8vj61")
 
-[node name="pivot" type="Marker2D" parent="."]
-position = Vector2(2, -11)
+[node name="ShootingPoint1" type="Marker2D" parent="."]
+position = Vector2(20, 3)
 
-[node name="ShootingPoint" type="Marker2D" parent="pivot"]
-position = Vector2(40, 0)
+[node name="ShootingPoint2" type="Marker2D" parent="." groups=["mob"]]
+position = Vector2(1, 3)
 
 [node name="Range" type="Area2D" parent="."]
 
@@ -213,7 +213,6 @@ position = Vector2(40, 0)
 shape = SubResource("CircleShape2D_mw2gi")
 
 [node name="ShootingTimer" type="Timer" parent="."]
-wait_time = 0.5
 one_shot = true
 
 [connection signal="area_entered" from="Range" to="." method="_on_range_area_entered"]
