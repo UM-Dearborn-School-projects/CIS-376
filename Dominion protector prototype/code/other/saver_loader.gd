@@ -8,7 +8,7 @@ func save_game():
 	
 	var saved_game:SavedGame = SavedGame.new()
 	
-	saved_game.player_health = player.health # Saving player health
+	saved_game.player_health = player.get_health() # Saving player health
 	saved_game.player_money = player.money # Saving players money
 	saved_game.player_position = player.global_position # saving players position
 	saved_game.player_speed = player.speed # Saving players current speed

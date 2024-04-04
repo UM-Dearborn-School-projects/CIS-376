@@ -111,9 +111,13 @@ func reduce_money(amount):
 	money -= amount
 	update()
 
+func get_health():
+	return $DamageArea.get_health()
+
 # Set the player health
 func change_health(amount):
 	health = amount
+	set_health(amount)
 
 # Add health given the value
 func add_health(amount):

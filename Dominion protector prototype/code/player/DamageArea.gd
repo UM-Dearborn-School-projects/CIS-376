@@ -30,5 +30,8 @@ func take_damage(damage):
 	if(health <= 0):
 		dead.emit()
 
+func get_health():
+	return health
+
 func update():
 	%Health.text = str(self.health) + "/20"

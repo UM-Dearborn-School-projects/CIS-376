@@ -1,4 +1,5 @@
 extends CharacterBody2D
+
 class_name Mob
 
 const BULLET = preload("res://code/projectiles/enemy_bullet.tscn")
@@ -19,12 +20,14 @@ var enter
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	start()
+
+func start():
 	$Laser.hide()
 	$AnimatedSprite2D.play("Spawn")
 	await get_tree().create_timer(.5).timeout
-	$AnimatedSprite2D.play("idle")
+	$AnimatedSprite2D.play("Idle")
 	await get_tree().create_timer(.25).timeout
-	
 	
 	enter = true
 	
@@ -58,9 +61,9 @@ func _physics_process(delta):
 		move_and_slide()
 		
 		if velocity.length() > 0:
-			$AnimatedSprite2D.play("movement")
+			$AnimatedSprite2D.play("Movement")
 		else:
-			$AnimatedSprite2D.play("idle")
+			$AnimatedSprite2D.play("Idle")
 		
 		# flip the animation based on the direction movement
 		$AnimatedSprite2D.flip_v = false
@@ -81,7 +84,7 @@ func targeting(delta):
 func attack(node):
 	$Laser.show()
 	$Laser.attack(node)
-	$AnimatedSprite2D.play("attack")
+	$AnimatedSprite2D.play("Attack")
 	await get_tree().create_timer(2).timeout
 
 # get the current id number for this mob
