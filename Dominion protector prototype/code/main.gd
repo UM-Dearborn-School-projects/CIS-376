@@ -32,6 +32,7 @@ func new_game():
 	$EnemyObjects/Enemyspawner.start()
 	$GameObjects/StartTimer.start()
 	$EnemyObjects/Enemyspawner.set_allowed(true)
+	$PlayerObjects/Shop.start()
 	isWin = false
 
 # the game over or loss condition, This stops the game and sets the main menu
@@ -43,6 +44,7 @@ func game_over():
 	$PlayerObjects/Inventory.hide()
 	$GameObjects/Music.stop()
 	$EnemyObjects/Enemyspawner.stop()
+	$PlayerObjects/Shop.stop()
 	
 	if (isWin):
 		win()

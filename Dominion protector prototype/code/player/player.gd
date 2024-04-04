@@ -5,7 +5,7 @@ signal dead
 var savePosition : Vector2
 
 # player status variables
-var speed = 200
+var speed = 250
 var health = 20;
 var screen_size
 var money
@@ -92,7 +92,7 @@ func stop():
 func reset():
 	sword = true
 	pistol = false
-	smg = false
+	smg = true
 	duet = false
 	shotgun = false
 	sniper= false

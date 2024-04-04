@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=3 uid="uid://c4eqbkw3tpim0"]
+
+[ext_resource type="Script" path="res://code/buildings/shop.gd" id="1_bwx5x"]
+[ext_resource type="Texture2D" uid="uid://bmxogeyhmv8iv" path="res://art/Tech Dungeon Roguelite - Asset Pack (v5)/NPC/npc x3.png" id="1_dn7j1"]
+[ext_resource type="PackedScene" uid="uid://cm6j225q27oi0" path="res://code/other/shop_area.tscn" id="2_vxgdb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgddb"]
+atlas = ExtResource("1_dn7j1")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bm32m"]
+atlas = ExtResource("1_dn7j1")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpvbv"]
+atlas = ExtResource("1_dn7j1")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ij4ht"]
+atlas = ExtResource("1_dn7j1")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yre5"]
+atlas = ExtResource("1_dn7j1")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e7uq3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgddb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bm32m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpvbv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ij4ht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8yre5")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[node name="Shop" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_bwx5x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_e7uq3")
+animation = &"move"
+
+[node name="ShopArea" parent="." instance=ExtResource("2_vxgdb")]

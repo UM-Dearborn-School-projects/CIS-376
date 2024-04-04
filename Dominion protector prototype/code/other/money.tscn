@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4mlv5by5uvre"]
+[gd_scene load_steps=5 format=3 uid="uid://c4mlv5by5uvre"]
 
 [ext_resource type="Script" path="res://code/other/money.gd" id="1_sakcv"]
 [ext_resource type="Texture2D" uid="uid://dv0wt81sl44j" path="res://art/drops/xp.png" id="2_sdx8g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y5i5h"]
-radius = 9.0
+radius = 9.05539
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lnmys"]
+radius = 67.0075
 
 [node name="Money" type="Area2D" groups=["coin"]]
 script = ExtResource("1_sakcv")
@@ -14,9 +17,16 @@ scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_sdx8g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 0
 shape = SubResource("CircleShape2D_y5i5h")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_lnmys")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
