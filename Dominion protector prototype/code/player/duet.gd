@@ -4,8 +4,8 @@ extends Gun
 func _ready():
 	set_damage(3)
 	set_accuracy(.2)
-	set_range(900)
-	set_speed(900)
+	set_range(800)
+	set_speed(800)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

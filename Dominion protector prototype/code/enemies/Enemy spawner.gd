@@ -106,7 +106,7 @@ func wave():
 
 # pick a spawn location
 func spawn_area():
-	var rand = randi() % 4 + 1
+	var rand = randi() % 6 + 1
 	
 	print(rand)
 	
@@ -115,13 +115,19 @@ func spawn_area():
 			var mob_spawn_location = $Right
 			spawn(mob_spawn_location)
 		2:
-			var mob_spawn_location = $Up
+			var mob_spawn_location = $Right2
 			spawn(mob_spawn_location)
 		3:
 			var mob_spawn_location = $Left
 			spawn(mob_spawn_location)
 		4:
+			var mob_spawn_location = $Left2
+			spawn(mob_spawn_location)
+		5:  
 			var mob_spawn_location = $Down
+			spawn(mob_spawn_location)
+		6:
+			var mob_spawn_location = $Down2
 			spawn(mob_spawn_location)
 
 # spawn at this location

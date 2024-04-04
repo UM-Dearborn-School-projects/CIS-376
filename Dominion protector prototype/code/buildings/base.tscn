@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://b03v6n31m2wtc"]
+[gd_scene load_steps=8 format=3 uid="uid://b03v6n31m2wtc"]
 
 [ext_resource type="Texture2D" uid="uid://cb8870m725uqc" path="res://art/buildings/main/body_tracks.png" id="2_m68al"]
 [ext_resource type="Script" path="res://code/buildings/base.gd" id="2_ujo36"]
 [ext_resource type="PackedScene" uid="uid://b084bo6khvkyq" path="res://code/buildings/turet.tscn" id="3_kbt6e"]
-[ext_resource type="PackedScene" uid="uid://cm6j225q27oi0" path="res://code/other/shop_area.tscn" id="4_ro3rv"]
 [ext_resource type="Script" path="res://code/buildings/DamageAreaBase.gd" id="5_h2wvt"]
 [ext_resource type="FontFile" uid="uid://c34yck4u33u8a" path="res://fonts/Xolonium-Regular.ttf" id="6_un0o8"]
 
@@ -24,8 +23,6 @@ position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_i2pw1")
 
 [node name="Turet" parent="." instance=ExtResource("3_kbt6e")]
-
-[node name="ShopArea" parent="." instance=ExtResource("4_ro3rv")]
 
 [node name="DamageArea" type="Area2D" parent="." groups=["base"]]
 script = ExtResource("5_h2wvt")

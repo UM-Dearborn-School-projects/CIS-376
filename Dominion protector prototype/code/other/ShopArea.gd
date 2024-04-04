@@ -33,7 +33,7 @@ var atack_speed_cost = 1000
 func _ready():
 	player = get_node("/root/Main/PlayerObjects/Player")
 	base = get_node("/root/Main/PlayerObjects/Base")
-	save = get_parent().get_save()
+	save = get_node("/root/Main/SaverLoader")
 	state = 0
 	hide_all()
 

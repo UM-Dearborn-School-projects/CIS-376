@@ -7,16 +7,25 @@
 script = ExtResource("1_gpkb0")
 
 [node name="Right" type="Marker2D" parent="."]
-position = Vector2(1895, 544)
+position = Vector2(1895, 300)
+
+[node name="Right2" type="Marker2D" parent="."]
+position = Vector2(1895, 375)
 
 [node name="Up" type="Marker2D" parent="."]
 position = Vector2(950, 25)
 
 [node name="Left" type="Marker2D" parent="."]
-position = Vector2(25, 540)
+position = Vector2(25, 300)
+
+[node name="Left2" type="Marker2D" parent="."]
+position = Vector2(25, 375)
 
 [node name="Down" type="Marker2D" parent="."]
-position = Vector2(950, 1055)
+position = Vector2(1825, 1050)
+
+[node name="Down2" type="Marker2D" parent="."]
+position = Vector2(75, 1050)
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
