@@ -113,6 +113,7 @@ func reduce_money(amount):
 	money -= amount
 	update()
 
+# function to get player health, used when saving players health to file
 func get_health():
 	return $DamageArea.get_health()
 

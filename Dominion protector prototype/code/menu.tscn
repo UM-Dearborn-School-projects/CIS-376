@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://ds27e8hwtu7f4"]
+[gd_scene load_steps=9 format=3 uid="uid://ds27e8hwtu7f4"]
 
 [ext_resource type="FontFile" uid="uid://c34yck4u33u8a" path="res://fonts/Xolonium-Regular.ttf" id="1_uh2s4"]
 [ext_resource type="Script" path="res://code/menu.gd" id="1_waqxn"]
+[ext_resource type="Texture2D" uid="uid://e4lo3h8lwdlo" path="res://art/UI sprites/png/Button/Rect/Default.png" id="3_05qrm"]
+[ext_resource type="Texture2D" uid="uid://dhfvsbbhtfrkr" path="res://art/UI sprites/png@2x/Button/Rect/Default@2x.png" id="3_uuvj3"]
+[ext_resource type="Texture2D" uid="uid://bh8vk385tk4nu" path="res://art/UI sprites/png@2x/Button/Rect/Hover@2x.png" id="4_smw7j"]
+[ext_resource type="Texture2D" uid="uid://ce1ub87ca1jx0" path="res://art/UI sprites/png/Button/Rect/Hover.png" id="4_ui6ca"]
+[ext_resource type="Texture2D" uid="uid://bpndtr6r8r2p3" path="res://art/UI sprites/png/Button/Square/Default.png" id="5_elh3i"]
+[ext_resource type="Texture2D" uid="uid://dn6ip4axqf5nm" path="res://art/UI sprites/png/Button/Square/Hover.png" id="6_se2tg"]
 
 [node name="Menu" type="CanvasLayer"]
 script = ExtResource("1_waqxn")
@@ -21,61 +27,325 @@ theme_override_font_sizes/font_size = 128
 text = "Dominion Protector
 "
 
-[node name="StartButton" type="Button" parent="."]
+[node name="StartButton" type="TextureButton" parent="."]
 custom_minimum_size = Vector2(250, 100)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -50.0
-offset_right = 125.0
-offset_bottom = 50.0
+offset_left = -160.0
+offset_top = -156.0
+offset_right = 160.0
+offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+texture_normal = ExtResource("3_uuvj3")
+texture_hover = ExtResource("4_smw7j")
+
+[node name="Start_Text" type="Label" parent="StartButton"]
+offset_right = 320.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_uh2s4")
 theme_override_font_sizes/font_size = 64
 text = "Start"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="MessageTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 
-[node name="QuitButton" type="Button" parent="."]
+[node name="QuitButton" type="TextureButton" parent="."]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -94.5
-offset_top = -186.0
-offset_right = 94.5
-offset_bottom = -90.0
+offset_left = -160.0
+offset_top = -280.0
+offset_right = 160.0
+offset_bottom = -111.0
 grow_horizontal = 2
 grow_vertical = 0
+texture_normal = ExtResource("3_uuvj3")
+texture_hover = ExtResource("4_smw7j")
+
+[node name="Quit_Text" type="Label" parent="QuitButton"]
+offset_right = 320.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_uh2s4")
 theme_override_font_sizes/font_size = 64
 text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
 
-[node name="TutorialButton" type="Button" parent="."]
+[node name="ControlsButton" type="TextureButton" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -147.0
-offset_top = 128.0
-offset_right = 147.0
-offset_bottom = 252.0
+offset_left = -160.0
+offset_top = 52.0
+offset_right = 160.0
+offset_bottom = 221.0
 grow_horizontal = 2
 grow_vertical = 2
+texture_normal = ExtResource("3_uuvj3")
+texture_hover = ExtResource("4_smw7j")
+
+[node name="Controls_Text" type="Label" parent="ControlsButton"]
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 320.0
+offset_bottom = 162.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_uh2s4")
 theme_override_font_sizes/font_size = 64
 text = "Controls"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Controls Screen" type="Node2D" parent="."]
+visible = false
+
+[node name="Movement Controls" type="Label" parent="Controls Screen"]
+offset_left = 480.0
+offset_top = 448.0
+offset_right = 742.0
+offset_bottom = 479.0
+theme_override_fonts/font = ExtResource("1_uh2s4")
+theme_override_font_sizes/font_size = 25
+text = "Movement Controls"
+
+[node name="Mouse Controls" type="Label" parent="Controls Screen"]
+offset_left = 1272.0
+offset_top = 448.0
+offset_right = 1483.0
+offset_bottom = 479.0
+theme_override_fonts/font = ExtResource("1_uh2s4")
+theme_override_font_sizes/font_size = 25
+text = "Mouse Controls
+"
+
+[node name="Exit_Control_menu" type="TextureButton" parent="Controls Screen"]
+offset_left = 880.0
+offset_top = 832.0
+offset_right = 1040.0
+offset_bottom = 917.0
+size_flags_horizontal = 4
+tooltip_text = "Exit"
+texture_normal = ExtResource("3_05qrm")
+texture_hover = ExtResource("4_ui6ca")
+
+[node name="Exit_Text" type="Label" parent="Controls Screen/Exit_Control_menu"]
+offset_right = 160.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_uh2s4")
+theme_override_font_sizes/font_size = 40
+text = "Exit"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Enter" type="TextureButton" parent="Controls Screen"]
+offset_left = 1296.0
+offset_top = 640.0
+offset_right = 1456.0
+offset_bottom = 725.0
+texture_normal = ExtResource("3_05qrm")
+texture_hover = ExtResource("4_ui6ca")
+
+[node name="Enter_Text" type="Label" parent="Controls Screen/Enter"]
+offset_right = 160.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_uh2s4")
+theme_override_font_sizes/font_size = 30
+text = "Enter"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Start Wave" type="Label" parent="Controls Screen/Enter"]
+offset_left = 32.0
+offset_top = 88.0
+offset_right = 128.0
+offset_bottom = 111.0
+theme_override_fonts/font = ExtResource("1_uh2s4")
+text = "Start Wave"
+metadata/_edit_lock_ = true
+
+[node name="Left_Mouse_Button" type="TextureButton" parent="Controls Screen"]
+offset_left = 1280.0
+offset_top = 512.0
+offset_right = 1360.0
+offset_bottom = 595.0
+texture_normal = ExtResource("5_elh3i")
+texture_hover = ExtResource("6_se2tg")
+
+[node name="Left_Mouse_Button_Text" type="Label" parent="Controls Screen/Left_Mouse_Button"]
+offset_right = 80.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_uh2s4")
+text = "Left
+Mouse
+Button"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Fire Weapon" type="Label" parent="Controls Screen/Left_Mouse_Button"]
+offset_left = -14.0
+offset_top = 88.0
+offset_right = 94.0
+offset_bottom = 111.0
+theme_override_fonts/font = ExtResource("1_uh2s4")
+text = "Fire Weapon"
+metadata/_edit_lock_ = true
+
+[node name="Right_Mouse_Button" type="TextureButton" parent="Controls Screen"]
+offset_left = 1392.0
+offset_top = 512.0
+offset_right = 1472.0
+offset_bottom = 595.0
+texture_normal = ExtResource("5_elh3i")
+texture_hover = ExtResource("6_se2tg")
+
+[node name="Right_Mouse_Button_Text" type="Label" parent="Controls Screen/Right_Mouse_Button"]
+offset_right = 80.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_uh2s4")
+text = "Right
+Mouse
+Button"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="D_Button" type="TextureButton" parent="Controls Screen"]
+offset_left = 672.0
+offset_top = 624.0
+offset_right = 752.0
+offset_bottom = 707.0
+texture_normal = ExtResource("5_elh3i")
+texture_hover = ExtResource("6_se2tg")
+
+[node name="D_Button_Text" type="Label" parent="Controls Screen/D_Button"]
+offset_right = 80.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_uh2s4")
+theme_override_font_sizes/font_size = 32
+text = "D"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Move Right" type="Label" parent="Controls Screen/D_Button"]
+offset_top = 88.0
+offset_right = 97.0
+offset_bottom = 111.0
+theme_override_fonts/font = ExtResource("1_uh2s4")
+text = "Move Right"
+metadata/_edit_lock_ = true
+
+[node name="S_Button" type="TextureButton" parent="Controls Screen"]
+offset_left = 560.0
+offset_top = 624.0
+offset_right = 640.0
+offset_bottom = 707.0
+texture_normal = ExtResource("5_elh3i")
+texture_hover = ExtResource("6_se2tg")
+
+[node name="S_Button_Text" type="Label" parent="Controls Screen/S_Button"]
+offset_right = 80.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_uh2s4")
+theme_override_font_sizes/font_size = 32
+text = "S"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Move Down" type="Label" parent="Controls Screen/S_Button"]
+offset_left = -8.0
+offset_top = 88.0
+offset_right = 93.0
+offset_bottom = 108.0
+theme_override_fonts/font = ExtResource("1_uh2s4")
+text = "Move Down"
+metadata/_edit_lock_ = true
+
+[node name="A_Button" type="TextureButton" parent="Controls Screen"]
+offset_left = 448.0
+offset_top = 624.0
+offset_right = 528.0
+offset_bottom = 707.0
+texture_normal = ExtResource("5_elh3i")
+texture_hover = ExtResource("6_se2tg")
+
+[node name="A_Button_Text" type="Label" parent="Controls Screen/A_Button"]
+offset_right = 80.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_uh2s4")
+theme_override_font_sizes/font_size = 32
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Move Left" type="Label" parent="Controls Screen/A_Button"]
+offset_left = -8.0
+offset_top = 88.0
+offset_right = 79.0
+offset_bottom = 111.0
+theme_override_fonts/font = ExtResource("1_uh2s4")
+text = "Move Left"
+metadata/_edit_lock_ = true
+
+[node name="W_Button" type="TextureButton" parent="Controls Screen"]
+offset_left = 560.0
+offset_top = 512.0
+offset_right = 640.0
+offset_bottom = 595.0
+texture_normal = ExtResource("5_elh3i")
+texture_hover = ExtResource("6_se2tg")
+
+[node name="W_Button_Text" type="Label" parent="Controls Screen/W_Button"]
+offset_right = 80.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_uh2s4")
+theme_override_font_sizes/font_size = 32
+text = "W"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Move Up" type="Label" parent="Controls Screen/W_Button"]
+offset_top = -24.0
+offset_right = 76.0
+offset_bottom = -1.0
+theme_override_fonts/font = ExtResource("1_uh2s4")
+text = "Move Up"
+metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="ControlsButton" to="." method="_on_controls_button_pressed"]
+[connection signal="pressed" from="Controls Screen/Exit_Control_menu" to="." method="_on_exit_control_menu_pressed"]

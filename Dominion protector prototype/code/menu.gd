@@ -5,6 +5,8 @@ signal start_game
 This class displayes the menu at the begining of the game and upon player death
 """
 
+@onready var control_screen = $"Controls Screen"
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -56,3 +58,21 @@ func _on_message_timer_timeout():
 
 func _on_quit_button_pressed():
 	get_tree().quit() # should quit the game when the button is pressed
+
+
+func _on_controls_button_pressed():
+	# going to move screen to a controls screen
+	control_screen.visible = true
+	#$Title.show()
+	$StartButton.hide()
+	$QuitButton.hide() # hides quit from showing when game starts
+	$ControlsButton.hide() # hides the tutorial button when games starts
+
+
+func _on_exit_control_menu_pressed():
+	# should return from control screen back to main screen
+	control_screen.visible = false
+	$Title.show()
+	$StartButton.show()
+	$QuitButton.show() # hides quit from showing when game starts
+	$ControlsButton.show() # hides the tutorial button when games starts
