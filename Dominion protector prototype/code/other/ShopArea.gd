@@ -13,7 +13,7 @@ var base : StaticBody2D
 var state
 
 #cost of items can be adjusted here
-var pistol_cost = 150
+var pistol_cost = 100
 var smg_cost = 300
 var duet_cost = 300
 var shotgun_cost = 600
