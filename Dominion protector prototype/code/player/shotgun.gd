@@ -5,7 +5,7 @@ func _ready():
 	set_damage(3)
 	set_accuracy(.2)
 	set_speed(700)
-	set_range(300)
+	set_range(350)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

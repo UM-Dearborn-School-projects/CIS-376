@@ -4,7 +4,9 @@ signal dead
 @export var player : CharacterBody2D
 @export var save : Node
 
-var damage = 3
+var damage = 5
+
+var id = 200
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,7 +35,7 @@ func stop():
 	$CollisionShape2D.set_deferred("disabled", true)
 
 func add_damage():
-	damage += 3
+	damage = damage * 2
 	set_damage()
 
 func set_damage():
@@ -41,6 +43,9 @@ func set_damage():
 
 func add_speed():
 	$Turet.reduce_timer()
+
+func add_health(amount):
+	$DamageArea.add_health(amount)
 
 # End game condition
 func _on_damage_area_dead():
@@ -53,3 +58,6 @@ func get_player():
 # Returns an instance of the save script
 func get_save():
 	return save
+
+func get_count():
+	return id

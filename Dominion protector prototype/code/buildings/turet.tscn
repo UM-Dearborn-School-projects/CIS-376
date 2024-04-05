@@ -51,7 +51,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4g1b8"]
-radius = 300.0
+radius = 316.002
 
 [node name="Turet" type="Area2D"]
 script = ExtResource("1_8e02t")

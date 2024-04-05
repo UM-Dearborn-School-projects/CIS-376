@@ -49,7 +49,8 @@ func update():
 		$GridContainer/Option7/Rocket.show()
 
 func hide_all():
-	$GridContainer/Option1/Sword.hide()
+	player.set_option(option)
+	selection.set_option(option)
 	$GridContainer/Option2/Pistol.hide()
 	$GridContainer/Option3/SMG.hide()
 	$GridContainer/Option4/Duet.hide()

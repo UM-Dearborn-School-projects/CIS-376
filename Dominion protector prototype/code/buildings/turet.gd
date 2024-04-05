@@ -1,7 +1,7 @@
 extends Area2D
 
 var can_shoot
-var damage = 10
+var damage = 5
 var mob_array = []
 var clean_array = []
 var target_enemy

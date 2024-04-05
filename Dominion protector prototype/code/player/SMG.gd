@@ -2,9 +2,9 @@ extends Gun
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_damage(1)
+	set_damage(2)
 	set_accuracy(.3)
-	set_range(650)
+	set_range(600)
 	set_speed(700)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

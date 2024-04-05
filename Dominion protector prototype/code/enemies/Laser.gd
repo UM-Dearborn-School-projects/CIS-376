@@ -28,6 +28,9 @@ func attack(node):
 		$AnimationPlayer.play("attack")
 		reset()
 
+func set_damage(amount):
+	self.damage = damage
+
 func reset():
 	can_shoot = false
 	$Timer.start()

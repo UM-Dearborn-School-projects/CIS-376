@@ -36,3 +36,6 @@ func take_damage(damage):
 
 func update():
 	%BaseHealth.text = str(health) + "/100"
+
+func get_count():
+	return get_parent().get_count()

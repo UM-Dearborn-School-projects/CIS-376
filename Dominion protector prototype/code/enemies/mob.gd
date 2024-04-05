@@ -2,8 +2,6 @@ extends CharacterBody2D
 
 class_name Mob
 
-const BULLET = preload("res://code/projectiles/enemy_bullet.tscn")
-
 var health
 var speed
 var damage
@@ -14,8 +12,9 @@ var accuracy
 var can_shoot
 static var count = 0
 var current_count
-var money_value = 25
-
+var money_value 
+var player_range
+var base_range
 var enter
 
 # Called when the node enters the scene tree for the first time.
@@ -36,9 +35,13 @@ func start():
 	player = get_node("/root/Main/PlayerObjects/Player")
 	base = get_node("/root/Main/PlayerObjects/Base")
 	main = get_node("/root/Main")
-	speed = 50
-	health = 6
+	speed = 75
+	health = 8
 	damage = 2
+	$Laser.set_damage(damage)
+	money_value = 25
+	player_range = 75
+	base_range = 100
 
 # the mob will attack when it is at close range and will walk twards either the base or player
 func _physics_process(delta):
@@ -51,14 +54,13 @@ func _physics_process(delta):
 	var distance_to_player = position.distance_to(player.position)
 	var distance_to_base = position.distance_to(base.position)
 	
-	if distance_to_player < 75.0:
+	if distance_to_player < player_range:
 		attack(player)
-	elif distance_to_base < 100.0:
+	elif distance_to_base < base_range:
 		attack(base)
 	else:
 		# normalize enemy movement to prevent fast horizontal movement
 		velocity = velocity.normalized() * speed
-		move_and_slide()
 		
 		if velocity.length() > 0:
 			$AnimatedSprite2D.play("Movement")
@@ -107,7 +109,7 @@ func enemy_take_damage(damage):
 		const DROP = preload("res://code/other/money.tscn")
 		var new_drop = DROP.instantiate()
 		new_drop.set_value(money_value)
-		new_drop.global_position = %Marker2D.global_position
+		new_drop.global_position = $Marker2D.global_position
 		self.main.add_child(new_drop)
 		queue_free()
 
@@ -117,7 +119,7 @@ func enemy_take_damage(damage):
 
 # damage base or player by walkinginto them (disabled)
 func _on_area_2d_area_entered(area):
-	#if area.is_in_group("player"):
+	#if area.is_in_group("player"):a
 		#area.take_damage(damage)
 		#await get_tree().create_timer(1).timeout
 	

@@ -11,7 +11,7 @@ var animation
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	can_shoot =false
-	damage = 4
+	damage = 5
 	animation = $AnimationPlayer
 	disable()
 

@@ -35,3 +35,6 @@ func get_health():
 
 func update():
 	%Health.text = str(self.health) + "/20"
+
+func get_count():
+	return get_parent().get_count()
