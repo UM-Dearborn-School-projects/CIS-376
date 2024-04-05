@@ -49,7 +49,7 @@ func title():
 func _on_start_button_pressed():
 	$StartButton.hide()
 	$QuitButton.hide() # hides quit from showing when game starts
-	$TutorialButton.hide() # hides the tutorial button when games starts
+	$ControlsButton.hide() # hides the tutorial button when games starts
 	start_game.emit()
 
 func _on_message_timer_timeout():
