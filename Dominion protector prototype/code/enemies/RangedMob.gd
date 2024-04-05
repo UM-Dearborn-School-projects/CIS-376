@@ -9,6 +9,7 @@ func _ready():
 	BULLET = preload("res://code/projectiles/enemy_bullet.tscn")
 	start()
 
+# on spawn
 func start():
 	can_shoot = false
 	$AnimatedSprite2D.play("Idle")
@@ -16,15 +17,18 @@ func start():
 	enter = true
 	
 	$ShootingTimer.start()
+	accuracy = .2
 	count += 1
 	current_count = count
 	player = get_node("/root/Main/PlayerObjects/Player")
 	base = get_node("/root/Main/PlayerObjects/Base")
 	main = get_node("/root/Main")
-	speed = 100
-	health = 3
+	money_value = 15
+	speed = 75
+	health = 5
 	damage = 1
 
+# called every frame
 func _physics_process(delta):
 	if not enter:
 		return 
@@ -46,6 +50,7 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
+# move
 func movement(delta):
 	var direction
 	if target_enemy != null && position.distance_to(target_enemy.global_position) < 200:
@@ -58,6 +63,7 @@ func movement(delta):
 		direction = global_position.direction_to(base.global_position)
 		velocity = direction * speed
 
+# shoot the target
 func shoot():
 	if(target_enemy != null):
 		if can_shoot:
@@ -68,13 +74,14 @@ func shoot():
 			# Convert radians to degrees
 			rotation_angle = rad_to_deg(rotation_angle)
 			# Apply rotation to the marker
-			$pivot.rotation_degrees = rotation_angle
+			$pivot.rotation_degrees = rotation_angle + 180
 			
 			$pivot/ShootingPoint.look_at(target_enemy.global_position)
 			shootBullets()
 			can_shoot = false
 			$ShootingTimer.start()
 
+# spawn bullets
 func shootBullets():
 	$AnimatedSprite2D.play("Attack")
 	var new_bullet_one = BULLET.instantiate()
@@ -82,9 +89,11 @@ func shootBullets():
 	new_bullet_one.set_damage(damage)
 	
 	new_bullet_one.global_position = $pivot/ShootingPoint.global_position
+	new_bullet_one.global_rotation = $pivot/ShootingPoint.global_rotation + randf_range(-accuracy,accuracy)
 	
 	$pivot/ShootingPoint.add_child(new_bullet_one)
 
+# find the player objects
 func detect_target():
 	for player in player_array:
 		if is_instance_valid(player):
@@ -137,7 +146,6 @@ func _on_shooting_timer_timeout():
 
 func _on_range_area_entered(area):
 	if area.is_in_group("player"):
-		print("Player is in range")
 		player_array.append(area)
 	if area.is_in_group("base"):
 		player_array.append(area)

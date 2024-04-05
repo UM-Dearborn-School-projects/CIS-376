@@ -1,7 +1,7 @@
 extends Area2D
 
 var can_shoot
-var damage = 10
+var damage = 5
 var mob_array = []
 var clean_array = []
 var target_enemy
@@ -35,6 +35,7 @@ func shoot():
 	var new_bullet = BULLET.instantiate()
 	new_bullet.set_damage(damage)
 	new_bullet.global_position = %ShootingPoint.global_position
+	new_bullet.global_rotation = %ShootingPoint.global_rotation
 	%ShootingPoint.add_child(new_bullet)
 
 # Start timers for reload

@@ -5,7 +5,7 @@ signal dead
 var savePosition : Vector2
 
 # player status variables
-var speed = 250
+var speed = 200
 var health = 20;
 var screen_size
 var money
@@ -94,7 +94,7 @@ func stop():
 func reset():
 	sword = true
 	pistol = false
-	smg = true
+	smg = false
 	duet = false
 	shotgun = false
 	sniper= false
@@ -106,7 +106,7 @@ func reset():
 
 # Display the money counter
 func update():
-	$CanvasLayer/MoneyCounter.text = str(money)
+	$CanvasLayer/MoneyCounter.text = "$" + str(money)
 
 # Reduce coin count given a value
 func reduce_money(amount):

@@ -52,7 +52,7 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_tsop3")
 theme_override_font_sizes/font_size = 58
-text = "Pistol:      $100"
+text = "Pistol:      $150"
 alignment = 0
 
 [node name="SMGButton" type="Button" parent="Shop/ShopOptions/Weapons"]
@@ -105,7 +105,7 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_tsop3")
 theme_override_font_sizes/font_size = 58
-text = "Shotgun: $500"
+text = "Shotgun: $600"
 alignment = 0
 
 [node name="SniperButton" type="Button" parent="Shop/ShopOptions/Weapons"]
@@ -141,11 +141,10 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_tsop3")
 theme_override_font_sizes/font_size = 58
-text = "Rocket:   $1000"
+text = "Rocket:   $1500"
 alignment = 0
 
 [node name="Utility" type="CanvasLayer" parent="Shop/ShopOptions"]
-visible = false
 
 [node name="HealthButton" type="Button" parent="Shop/ShopOptions/Utility"]
 custom_minimum_size = Vector2(500, 100)
@@ -165,7 +164,27 @@ theme_override_font_sizes/font_size = 58
 text = "Health:      $50"
 alignment = 0
 
+[node name="BaseHealthButton" type="Button" parent="Shop/ShopOptions/Utility"]
+custom_minimum_size = Vector2(500, 100)
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -498.0
+offset_top = -40.0
+offset_right = 2.0
+offset_bottom = 60.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_tsop3")
+theme_override_font_sizes/font_size = 48
+text = "Base Health: $200
+"
+alignment = 0
+
 [node name="Upgrades" type="CanvasLayer" parent="Shop/ShopOptions"]
+visible = false
 
 [node name="SpeedButton" type="Button" parent="Shop/ShopOptions/Upgrades"]
 custom_minimum_size = Vector2(500, 100)
@@ -194,9 +213,9 @@ anchor_top = 4.1
 anchor_right = 1.012
 anchor_bottom = 4.1
 offset_left = -527.04
-offset_top = -3983.0
+offset_top = -4078.0
 offset_right = -27.0399
-offset_bottom = -3883.0
+offset_bottom = -3978.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_tsop3")
@@ -213,9 +232,9 @@ anchor_top = 4.1
 anchor_right = 1.012
 anchor_bottom = 4.1
 offset_left = -529.04
-offset_top = -3870.0
+offset_top = -3965.0
 offset_right = -22.0399
-offset_bottom = -3770.0
+offset_bottom = -3865.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_tsop3")
@@ -318,6 +337,7 @@ text = "Shop"
 [connection signal="pressed" from="Shop/ShopOptions/Weapons/SniperButton" to="." method="_on_sniper_button_pressed"]
 [connection signal="pressed" from="Shop/ShopOptions/Weapons/RocketButton" to="." method="_on_rocket_button_pressed"]
 [connection signal="pressed" from="Shop/ShopOptions/Utility/HealthButton" to="." method="_on_health_button_pressed"]
+[connection signal="pressed" from="Shop/ShopOptions/Utility/BaseHealthButton" to="." method="_on_base_health_button_pressed"]
 [connection signal="pressed" from="Shop/ShopOptions/Upgrades/SpeedButton" to="." method="_on_speed_button_pressed"]
 [connection signal="pressed" from="Shop/ShopOptions/Upgrades/BaseDamage" to="." method="_on_base_damage_pressed"]
 [connection signal="pressed" from="Shop/ShopOptions/Upgrades/BaseAtkSpd" to="." method="_on_base_atk_spd_pressed"]

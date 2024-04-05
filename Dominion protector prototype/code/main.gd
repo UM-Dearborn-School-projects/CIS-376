@@ -41,6 +41,7 @@ func game_over():
 	await get_tree().create_timer(1).timeout
 	get_tree().paused = false
 	
+	$PlayerObjects/Inventory.hide_all()
 	$PlayerObjects/Inventory.hide()
 	$GameObjects/Music.stop()
 	$EnemyObjects/Enemyspawner.stop()

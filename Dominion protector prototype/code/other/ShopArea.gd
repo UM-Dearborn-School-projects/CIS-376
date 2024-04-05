@@ -13,15 +13,18 @@ var base : StaticBody2D
 var state
 
 #cost of items can be adjusted here
-var pistol_cost = 100
+var pistol_cost = 150
 var smg_cost = 300
 var duet_cost = 300
-var shotgun_cost = 500
+var shotgun_cost = 600
 var sniper_cost = 800
-var rocket_cost = 1000
+var rocket_cost = 1500
 
 var health_cost = 50
 var health_amount = 5
+
+var base_health_cost = 200
+var base_health_amount = 10
 
 var speed_cost = 200
 var speed_amount = 10
@@ -184,14 +187,22 @@ func _on_save_button_pressed():
 	print("Save game")
 	save.save_game()
 
+# increase base damage by doble
 func _on_base_damage_pressed():
 	if(has_money(damage_cost)):
 		reduce_money(damage_cost)
 		base.add_damage()
 		$Shop/ShopOptions/Upgrades/BaseDamage.disabled = true
 
+# increase base attack speed by tripple
 func _on_base_atk_spd_pressed():
 	if(has_money(atack_speed_cost)):
 		reduce_money(atack_speed_cost)
 		base.add_speed()
 		$Shop/ShopOptions/Upgrades/BaseAtkSpd.disabled = true
+
+# heal base by 10
+func _on_base_health_button_pressed():
+	if(has_money(base_health_cost)):
+		reduce_money(base_health_cost)
+		base.add_health(base_health_amount)

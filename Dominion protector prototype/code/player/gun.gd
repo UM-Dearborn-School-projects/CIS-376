@@ -3,7 +3,7 @@ class_name Gun
 extends Area2D
 
 var can_shoot
-var damage = 2
+var damage = 3
 var range = 600
 var speed = 600
 
