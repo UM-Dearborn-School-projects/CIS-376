@@ -67,6 +67,7 @@ func set_allowed(allowed):
 
 # start by showing the waves
 func start():
+	$CanvasLayer/WaveCounter.text = "Wave #" + str(counter)
 	$CanvasLayer/WaveCounter.show()
 
 # stop and reset this class
@@ -95,9 +96,10 @@ func wave():
 		main.setWin()
 		main.game_over()
 	
+	$Timer.wait_time = 0.01
+	
 	match  counter:
 		1:
-			$Timer.wait_time = 1.0
 			mele_num = 4
 			$Timer.start()
 		2:
@@ -105,7 +107,6 @@ func wave():
 			ranged_num = 2
 			$Timer.start()
 		3:
-			$Timer.wait_time = 0.8
 			ranged_num = 8
 			$Timer.start()
 		4:
@@ -117,7 +118,6 @@ func wave():
 			ranged_num = 6
 			$Timer.start()
 		6:
-			$Timer.wait_time = 0.6
 			mele_num = 16
 			ranged_num = 8
 			$Timer.start()
@@ -134,7 +134,6 @@ func wave():
 			ranged_num = 15
 			$Timer.start()
 		10:
-			$Timer.wait_time = 0.2
 			mele_num = 20
 			strong_num = 6
 			ranged_num = 20
@@ -150,7 +149,6 @@ func wave():
 			ranged_num = 15
 			$Timer.start()
 		13:
-			$Timer.wait_time = 0.1
 			strong_num = 25
 			ranged_num = 20
 			$Timer.start()
@@ -212,6 +210,18 @@ func spawn(location, type):
 # this timer is to prevent enemies from spawning into eachother
 func _on_timer_timeout():
 	i += 1
+	
+	if counter == 1:
+		$Timer.wait_time = 1.0
+	elif counter == 3:
+		$Timer.wait_time = 0.8
+	elif counter == 6:
+		$Timer.wait_time = 0.6
+	elif counter == 10:
+		$Timer.wait_time = 0.4
+	elif counter == 13:
+		$Timer.wait_time = 0.2
+	
 	if i <= mele_num + ranged_num + strong_num + boss_num:
 		var avilable = []
 		

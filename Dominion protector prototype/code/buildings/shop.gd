@@ -11,9 +11,11 @@ func _process(delta):
 	pass
 
 func start():
+	$ShopArea.reset()
 	$AnimatedSprite2D.show()
 	$AnimatedSprite2D.play("move")
 
 func stop():
+	$ShopArea.reset()
 	$AnimatedSprite2D.hide()
 	$AnimatedSprite2D.stop()

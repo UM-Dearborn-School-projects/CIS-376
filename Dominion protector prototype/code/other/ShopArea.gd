@@ -15,7 +15,7 @@ var state
 #cost of items can be adjusted here
 var pistol_cost = 100
 var smg_cost = 300
-var duet_cost = 300
+var duet_cost = 400
 var shotgun_cost = 600
 var sniper_cost = 800
 var rocket_cost = 1500
@@ -43,6 +43,16 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func reset():
+	$Shop/ShopOptions/Weapons/PistolButton.disabled = false
+	$Shop/ShopOptions/Weapons/SMGButton.disabled = false
+	$Shop/ShopOptions/Weapons/DuetButton.disabled = false
+	$Shop/ShopOptions/Weapons/ShotgunButton.disabled = false
+	$Shop/ShopOptions/Weapons/SniperButton.disabled = false
+	$Shop/ShopOptions/Weapons/RocketButton.disabled = false
+	$Shop/ShopOptions/Upgrades/BaseAtkSpd.disabled = false
+	$Shop/ShopOptions/Upgrades/BaseDamage.disabled = false
 
 #hides all icons
 func hide_all():
@@ -206,3 +216,8 @@ func _on_base_health_button_pressed():
 	if(has_money(base_health_cost)):
 		reduce_money(base_health_cost)
 		base.add_health(base_health_amount)
+
+func _on_towers_button_pressed():
+	state = 2
+	$Shop/ShopOptions.hide()
+	$Shop/ShopOptions/Towers.show()

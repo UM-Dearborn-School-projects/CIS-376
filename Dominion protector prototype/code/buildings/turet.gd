@@ -1,7 +1,7 @@
 extends Area2D
 
 var can_shoot
-var damage = 5
+var damage
 var mob_array = []
 var clean_array = []
 var target_enemy
@@ -10,6 +10,7 @@ const BULLET = preload("res://code/projectiles/bullet.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	damage = 5
 	can_shoot = false
 
 # also called every frame?
@@ -48,6 +49,8 @@ func reduce_timer():
 
 # Reset the functionality
 func reset():
+	damage = 5
+	$ShootingTimer.set_wait_time(5)
 	can_shoot = false
 	$ShootingTimer.start()
 
