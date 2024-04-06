@@ -19,7 +19,7 @@ func start():
 	base = get_node("/root/Main/PlayerObjects/Base")
 	main = get_node("/root/Main")
 	speed = 75
-	health = 40
+	health = 60
 	damage = 4
 	money_value = 100
 	player_range = 125

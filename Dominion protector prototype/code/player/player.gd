@@ -75,6 +75,8 @@ func dead_signal():
 
 # enable functionality
 func start(position):
+	speed = 200
+	money = 0
 	$DamageArea.set_health(health)
 	reset()
 	self.position = position

@@ -20,6 +20,8 @@ func _process(delta):
 # Increases the health by a given value
 func add_health(health):
 	self.health += health
+	if health > 100:
+		health = 100
 	update()
 
 # Set the health to a specific value
