@@ -35,7 +35,6 @@ text = "Back"
 visible = false
 
 [node name="Weapons" type="CanvasLayer" parent="Shop/ShopOptions"]
-visible = false
 
 [node name="PistolButton" type="Button" parent="Shop/ShopOptions/Weapons"]
 custom_minimum_size = Vector2(500, 100)
@@ -52,7 +51,7 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_tsop3")
 theme_override_font_sizes/font_size = 58
-text = "Pistol:      $150"
+text = "Pistol:      $100"
 alignment = 0
 
 [node name="SMGButton" type="Button" parent="Shop/ShopOptions/Weapons"]
