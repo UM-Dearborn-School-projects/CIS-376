@@ -211,15 +211,15 @@ func spawn(location, type):
 func _on_timer_timeout():
 	i += 1
 	
-	if counter == 1:
+	if counter < 1:
 		$Timer.wait_time = 1.0
-	elif counter == 3:
+	elif counter < 6:
 		$Timer.wait_time = 0.8
-	elif counter == 6:
+	elif counter < 10:
 		$Timer.wait_time = 0.6
-	elif counter == 10:
+	elif counter < 13:
 		$Timer.wait_time = 0.4
-	elif counter == 13:
+	else:
 		$Timer.wait_time = 0.2
 	
 	if i <= mele_num + ranged_num + strong_num + boss_num:
