@@ -35,7 +35,8 @@ players can try different strategies to beat the bots.
 * ```Mouse Movement``` Weapon Aiming
 
 ## Screenshots
-
+![](https://github.com/UM-Dearborn-School-projects/CIS-476/blob/main/Screenshots/Main%20Menu.png)
+[Screenshots](https://github.com/UM-Dearborn-School-projects/CIS-476/tree/main/Screenshots)
 
 ### Contributors: 
 * [Marvin Mlakha](https://github.com/Marv2014-1)
