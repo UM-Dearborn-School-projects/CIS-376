@@ -36,7 +36,7 @@ players can try different strategies to beat the bots.
 
 ## Screenshots
 ![](https://github.com/UM-Dearborn-School-projects/CIS-476/blob/main/Screenshots/Main%20Menu.png)
-[Screenshots](https://github.com/UM-Dearborn-School-projects/CIS-476/tree/main/Screenshots)
+[More Screenshots](https://github.com/UM-Dearborn-School-projects/CIS-476/tree/main/Screenshots)
 
 ### Contributors: 
 * [Marvin Mlakha](https://github.com/Marv2014-1)
