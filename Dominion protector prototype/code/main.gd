@@ -46,6 +46,7 @@ func game_over():
 	$GameObjects/Music.stop()
 	$EnemyObjects/Enemyspawner.stop()
 	$PlayerObjects/Shop.stop()
+	$PlayerObjects/Tower_Placement.reset()
 	
 	if (isWin):
 		win()
