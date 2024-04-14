@@ -32,6 +32,7 @@ theme_override_font_sizes/font_size = 58
 text = "Back"
 
 [node name="ShopOptions" type="CanvasLayer" parent="Shop"]
+visible = false
 
 [node name="Weapons" type="CanvasLayer" parent="Shop/ShopOptions"]
 
@@ -327,6 +328,24 @@ theme_override_font_sizes/font_size = 58
 text = "Towers"
 
 [node name="Towers" type="CanvasLayer" parent="Shop/ShopOptions"]
+visible = false
+
+[node name="BasicTowerButton" type="Button" parent="Shop/ShopOptions/Towers"]
+custom_minimum_size = Vector2(500, 100)
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -502.0
+offset_top = -308.0
+offset_right = -2.0
+offset_bottom = -208.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_tsop3")
+theme_override_font_sizes/font_size = 58
+text = "Tower     $400"
 
 [node name="ShopButton" type="Button" parent="Shop"]
 visible = false
@@ -365,4 +384,5 @@ text = "Shop"
 [connection signal="pressed" from="Shop/ShopOptions/SaveButton" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="Shop/ShopOptions/LoadButton" to="." method="_on_load_button_pressed"]
 [connection signal="pressed" from="Shop/ShopOptions/TowersButton" to="." method="_on_towers_button_pressed"]
+[connection signal="pressed" from="Shop/ShopOptions/Towers/BasicTowerButton" to="." method="_on_basic_tower_button_pressed"]
 [connection signal="pressed" from="Shop/ShopButton" to="." method="_on_shop_button_pressed"]

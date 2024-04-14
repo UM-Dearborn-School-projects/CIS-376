@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cwi0icxvbohko"]
+[gd_scene load_steps=17 format=3 uid="uid://cwi0icxvbohko"]
 
 [ext_resource type="Script" path="res://code/main.gd" id="1_8y441"]
 [ext_resource type="PackedScene" uid="uid://bkdjrxkoinvcx" path="res://code/player/player.tscn" id="1_hxk3n"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://code/other/saver_loader.gd" id="9_ookwg"]
 [ext_resource type="Texture2D" uid="uid://b6xbjyb2espbs" path="res://art/buildings/ground_shaker_asset/ground_shaker_asset/Terrains/terrain.png" id="9_r3v2h"]
 [ext_resource type="PackedScene" uid="uid://bvbacp5j2k24l" path="res://code/enemies/enemy_spawner.tscn" id="9_so36k"]
+[ext_resource type="Script" path="res://code/towers/Tower_Placement.gd" id="11_rdici"]
 [ext_resource type="PackedScene" uid="uid://c4eqbkw3tpim0" path="res://code/buildings/shop.tscn" id="12_hkxdf"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_s4c63"]
@@ -2319,6 +2320,9 @@ layer_0/tile_data = PackedInt32Array(458758, 393216, 11, 524294, 393216, 12, 589
 
 [node name="Shop" parent="PlayerObjects" instance=ExtResource("12_hkxdf")]
 position = Vector2(907, 120)
+
+[node name="Tower_Placement" type="Node2D" parent="PlayerObjects"]
+script = ExtResource("11_rdici")
 
 [node name="EnemyObjects" type="Node" parent="."]
 

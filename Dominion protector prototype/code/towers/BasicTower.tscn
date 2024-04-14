@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://bsk1fq4h1wi72"]
+
+[ext_resource type="Texture2D" uid="uid://dtjashh64qid6" path="res://art/buildings/towers/tower.png" id="1_8mctp"]
+[ext_resource type="Script" path="res://code/towers/BasicTower.gd" id="1_75xln"]
+[ext_resource type="PackedScene" uid="uid://b084bo6khvkyq" path="res://code/buildings/turet.tscn" id="2_v1uqb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2v7t"]
+radius = 104.005
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3lbk8"]
+size = Vector2(96, 96)
+
+[node name="BasicTower" type="Area2D"]
+script = ExtResource("1_75xln")
+
+[node name="placement_area" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_g2v7t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_8mctp")
+
+[node name="collider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3lbk8")
+
+[node name="Turet" parent="." instance=ExtResource("2_v1uqb")]

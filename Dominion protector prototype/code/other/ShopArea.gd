@@ -5,6 +5,7 @@ This class gives functionality to the shop buttons and allows them to show
 when a player colides with a colision shape. 
 """
 
+var placement : Node
 # Save script
 var save : Node
 # player instance
@@ -32,11 +33,14 @@ var speed_amount = 10
 var damage_cost = 500
 var atack_speed_cost = 1000
 
+var basic_tower_cost = 400
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_node("/root/Main/PlayerObjects/Player")
 	base = get_node("/root/Main/PlayerObjects/Base")
 	save = get_node("/root/Main/SaverLoader")
+	placement = get_node("/root/Main/PlayerObjects/Tower_Placement")
 	state = 0
 	hide_all()
 
@@ -63,6 +67,7 @@ func hide_all():
 	$Shop/ShopOptions/Upgrades.hide()
 	$Shop/ShopOptions/SaveButton.hide()
 	$Shop/ShopOptions/LoadButton.hide()
+	$Shop/ShopOptions/Towers.hide()
 
 #checks to see if the player has enough money to make a purchase
 func has_money(amount):
@@ -221,3 +226,9 @@ func _on_towers_button_pressed():
 	state = 2
 	$Shop/ShopOptions.hide()
 	$Shop/ShopOptions/Towers.show()
+
+func _on_basic_tower_button_pressed():
+	if(!has_money(basic_tower_cost)):
+		return
+	reduce_money(basic_tower_cost)
+	placement.start_basic_tower_placement()
