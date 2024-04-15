@@ -23,7 +23,7 @@ func _process(delta):
 # creates a new game and enables functionality of of objects
 func new_game():
 	get_tree().call_group("mobs", "queue_free")
-	#$GameObjects/Music.play()
+	$GameObjects/Music.play()
 	$Menu.show_message("Get Ready")
 	await get_tree().create_timer(2.1).timeout
 	$PlayerObjects/Inventory.show()

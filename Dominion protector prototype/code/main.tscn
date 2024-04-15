@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bkdjrxkoinvcx" path="res://code/player/player.tscn" id="1_hxk3n"]
 [ext_resource type="PackedScene" uid="uid://ds27e8hwtu7f4" path="res://code/menu.tscn" id="2_ikn2h"]
 [ext_resource type="PackedScene" uid="uid://b03v6n31m2wtc" path="res://code/buildings/base.tscn" id="4_6nqjk"]
-[ext_resource type="AudioStream" uid="uid://dmxl07a2h6tk0" path="res://art/sound/House In a Forest Loop.ogg" id="5_p2uow"]
+[ext_resource type="AudioStream" uid="uid://dqliwnsgd04ag" path="res://art/sound/dungeon_theme_1.wav" id="4_fwggr"]
 [ext_resource type="AudioStream" uid="uid://57iygy08tylw" path="res://art/sound/gameover.wav" id="6_31kji"]
 [ext_resource type="PackedScene" uid="uid://lrr4xfvy4oy" path="res://code/enemies/mob.tscn" id="7_aghbg"]
 [ext_resource type="PackedScene" uid="uid://dby34b7l7v5uj" path="res://code/player/inventory.tscn" id="8_1117e"]
@@ -2271,7 +2271,7 @@ mob_scene = ExtResource("7_aghbg")
 [node name="GameObjects" type="Node" parent="."]
 
 [node name="Music" type="AudioStreamPlayer" parent="GameObjects"]
-stream = ExtResource("5_p2uow")
+stream = ExtResource("4_fwggr")
 
 [node name="GameOverSound" type="AudioStreamPlayer" parent="GameObjects"]
 stream = ExtResource("6_31kji")
