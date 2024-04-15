@@ -9,6 +9,7 @@ players can try different strategies to beat the bots.
 * 4 Enemy variants
 * Increasing wave difficulty
 * Great enemy design
+* Place automated defense turrets
 
 ## How To Run
 * Running from the executable:
