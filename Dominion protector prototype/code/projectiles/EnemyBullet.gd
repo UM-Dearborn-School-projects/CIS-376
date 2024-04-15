@@ -3,7 +3,7 @@ extends Bullet
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	range = 300
-	speed = 250
+	speed = 225
 	damage = 1
 
 
